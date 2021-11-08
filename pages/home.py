@@ -46,7 +46,7 @@ def app():
         
         if st.button("Get Started") or st.session_state['start']:
             st.session_state['start'] = True
-            body.success('Cieee udah ready nih')
+            return True
         else:
             body.title("JAKA", 'get-started')
             body.markdown("<a>Jadwal Aman, Kuliah Aman.</a>", unsafe_allow_html=True)
@@ -62,3 +62,4 @@ def app():
             body.markdown(about_text, unsafe_allow_html=True)
             for i in range(2):
                 body.write(' ')
+            return False
