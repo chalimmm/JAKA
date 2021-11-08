@@ -27,7 +27,7 @@ def app():
             pass
         with col2 :
             is_login = st.form_submit_button('Login')
-#     if is_agree and is_login:
-#         return auth(u, p)
-#     else:
-#         return False
+    if is_agree and is_login:
+        return auth(u, p)
+    else:
+        return False
