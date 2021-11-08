@@ -66,7 +66,9 @@ def app():
         </style>""", unsafe_allow_html=True)
         
         st.markdown("""
-        <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
         <style>
         h1 {
         font-family: 'Montserrat';font-size: 40px;
