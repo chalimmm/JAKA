@@ -59,6 +59,6 @@ def app():
             about_text = """
                 JAKA is built to make Universitas Indonesia student's course scheduling easier, faster, seamless, and more intuitive than ever.
             """
-            body.write(about_text)
+            body.subheader(about_text)
             for i in range(2):
                 body.write(' ')
