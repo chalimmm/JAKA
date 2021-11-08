@@ -44,54 +44,12 @@ def app():
         
         #st.warning(st.session_state['start'])
         
-#         st.markdown("""
-#         <style>
-#         div.stButton > button {
-#             background-color: #f72585;
-#             border: none;
-#             color: white;
-#             padding: 15px 32px;
-#             text-align: center;
-#             text-decoration: none;
-#             display: inline-block;
-#             font-size: 16px;
-#             margin: 4px 2px;
-#             cursor: pointer;
-#             width: 50%;
-#         }
-#         div.stButton > button:hover {
-#             background-color: #f8f8f8;
-#             box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 10px 20px 0 rgba(0,0,0,0.19);
-#         }
-#         </style>""", unsafe_allow_html=True)
-        
-#         st.markdown("""
-#         <link rel="preconnect" href="https://fonts.googleapis.com">
-#         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-#         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
-#         <style>
-#         h1 {
-#         font-family: 'Montserrat';font-size: 55px;
-#         font-weight: 900;
-#         }
-#         </style>""", unsafe_allow_html=True)
-        
-#         st.markdown("""
-#         <link rel="preconnect" href="https://fonts.googleapis.com">
-#         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-#         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;800&display=swap" rel="stylesheet">
-#         <style>
-#         p {
-#         font-family: 'Montserrat';font-size: 25px;
-#         }
-#         </style>""", unsafe_allow_html=True)
-        
         if st.button("Get Started") or st.session_state['start']:
             st.session_state['start'] = True
             body.success('Cieee udah ready nih')
         else:
             body.title("JAKA", 'get-started')
-            body.write("Jadwal Aman, Kuliah Aman.")
+            body.write("##Jadwal Aman, Kuliah Aman.")
             #body.markdown("""<hr size="4px" width="100%" color="#f72585">""", unsafe_allow_html=True)
             
             body.markdown("""
