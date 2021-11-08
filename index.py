@@ -61,5 +61,7 @@ if menu == 'Home':
     home.app()
 elif menu == 'Schedule':
     schedule.app()
+elif menu == 'Login':
+    login.app()
 else:
     error.app(307)
