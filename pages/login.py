@@ -20,7 +20,7 @@ def app():
         u = st.text_input('Username', max_chars=30)
         p = st.text_input('Password', type='password', max_chars=30)
         is_agree = st.checkbox('Saya telah membaca dan menyetujui Kebijakan Privasi JAKA')
-        col1, col2, col3  = st.columns((3,2,3))
+        col1, col2, col3  = st.columns((3,3,2))
         with col1:
             pass
         with col3:
