@@ -11,7 +11,8 @@ def auth(username, password):
     return True
 
 def app():
-    st.title('Halo, dari Jaka')
+    st.title('JAKA')
+    st.write('Sign In to your JAKA account')
 
     with st.form('login_form', clear_on_submit=True):
         u = st.text_input('Username', max_chars=30)
