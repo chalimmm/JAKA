@@ -65,6 +65,14 @@ def app():
         }
         </style>""", unsafe_allow_html=True)
         
+        st.markdown("""
+        <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+        <style>
+        body {
+        font-family: 'Montserrat';font-size: 22px;
+        }
+        </style>""", unsafe_allow_html=True)
+        
         if st.button("Get Started") or st.session_state['start']:
             st.session_state['start'] = True
             body.success('Cieee udah ready nih')
@@ -72,7 +80,14 @@ def app():
             body.title("JAKA", 'get-started')
             body.write("Jadwal Aman, Kuliah Aman.")
             #body.markdown("""<hr size="4px" width="100%" color="#f72585">""", unsafe_allow_html=True)
-            body.markdown("""<hr style="height:4px;border:none;color:#f72585;background-color:#f72585" /> """, unsafe_allow_html=True)
+            
+            body.markdown("""
+            <h1>Montserrat</h1>
+            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
+            <p>123456790</p>
+            <p>ABCDEFGHIJKLMNOPQRSTUVWXYZ</p>
+            <p>abcdefghijklmnopqrstuvwxyz</p>
+            <hr style="height:4px;border:none;color:#f72585;background-color:#f72585" /> """, unsafe_allow_html=True)
             
             about_text = """
                 Jaka is built to make Universitas Indonesia student's course scheduling easier, faster, seamless, and more intuitive than ever.
