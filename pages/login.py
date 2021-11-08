@@ -27,12 +27,16 @@ def app():
 # #             pass
 # #         with col2 :
 #         is_login = st.form_submit_button('Login')
-    col1, col2, col3  = st.columns((3,2,3))
+    col1, col2, col3, col4, col5  = st.columns((5))
     with col1:
         pass
-    with col3:
+    with col2:
         pass
-    with col2 :
+    with col4:
+        pass
+    with col5:
+        pass
+    with col3 :
         st.button("Login")
     if is_agree and is_login:
         return auth(u, p)
