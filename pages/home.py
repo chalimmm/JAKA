@@ -49,7 +49,7 @@ def app():
             body.success('Cieee udah ready nih')
         else:
             body.title("JAKA", 'get-started')
-            body.markdown("<h2>Jadwal Aman, Kuliah Aman.</h2>", unsafe_allow_html=True)
+            body.markdown("<a>Jadwal Aman, Kuliah Aman.</a>", unsafe_allow_html=True)
             #body.write("Jadwal Aman, Kuliah Aman.")
             #body.markdown("""<hr size="4px" width="100%" color="#f72585">""", unsafe_allow_html=True)
             
@@ -57,7 +57,7 @@ def app():
             <hr style="height:4px;border:none;color:#f72585;background-color:#f72585" /> """, unsafe_allow_html=True)
             
             about_text = """
-                <h2>JAKA is built to make Universitas Indonesia student's course scheduling easier, faster, seamless, and more intuitive than ever.</h2>
+                <a>JAKA is built to make Universitas Indonesia student's course scheduling easier, faster, seamless, and more intuitive than ever.</a>
             """
             body.markdown(about_text, unsafe_allow_html=True)
             for i in range(2):
