@@ -30,7 +30,7 @@ def FilterCourse():
     with c1:
         course_list = []
         for course in courses:
-            course_list.append(course['name']+' ('+str(course['sks'])+')') 
+            course_list.append(course['name']+' ('+str(course['sks'])+' SKS)') 
         st.subheader('Select Course(s)')
         course_selected = st.multiselect('', options=course_list)
     with c2:
