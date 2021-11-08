@@ -71,7 +71,7 @@ def app():
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
         <style>
         h1 {
-        font-family: 'Montserrat';font-size: 40px;
+        font-family: 'Montserrat';font-size: 60px;
         font-weight: 900;
         }
         </style>""", unsafe_allow_html=True)
