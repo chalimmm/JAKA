@@ -68,7 +68,7 @@ st.markdown("""
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
 <style>
-h2 {
+a {
 font-family: 'Montserrat';font-size: 25px;
 }
 </style>""", unsafe_allow_html=True)
