@@ -65,7 +65,7 @@ def app():
         }
         </style>""", unsafe_allow_html=True)
         
-        body.markdown("""
+        st.markdown("""
         <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
         <style>
         h1 {
