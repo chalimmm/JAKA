@@ -57,8 +57,8 @@ def app():
             <hr style="height:4px;border:none;color:#f72585;background-color:#f72585" /> """, unsafe_allow_html=True)
             
             about_text = """
-                JAKA is built to make Universitas Indonesia student's course scheduling easier, faster, seamless, and more intuitive than ever.
+                <h2>JAKA is built to make Universitas Indonesia student's course scheduling easier, faster, seamless, and more intuitive than ever.</h2>
             """
-            body.subheader(about_text)
+            body.markdown(about_text, unsafe_allow_html=True)
             for i in range(2):
                 body.write(' ')
