@@ -70,6 +70,7 @@ def app():
             body.success('Cieee udah ready nih')
         else:
             body.title("JAKA", 'get-started')
+            st.write("Jadwal Aman, Kuliah Aman.")
             about_text = """
                 Jaka is built to make Universitas Indonesia student's course scheduling easier, faster, seamless, and more intuitive than ever.
             """
