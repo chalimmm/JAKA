@@ -75,6 +75,9 @@ font-family: 'Montserrat';font-size: 25px;
 
 h1, empty, h2 = st.columns((1, 4, 1))
 
+if 'start' not in st.session_state:
+    st.session_state['start'] = False
+
 with h1: # Kolom kiri untuk logo
     st.write(" ")
     st.write(" ")
@@ -89,8 +92,11 @@ with h2: # Dropdown menu
         options=page_list,
     )
 
-if menu == 'Home':
-    home.app()
+if menu == 'Home' and:
+    if st.session_state['start']:
+        login.app()
+    else:
+        home.app()
 elif menu == 'Schedule':
     schedule.app()
 elif menu == 'Login':
