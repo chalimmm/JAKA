@@ -71,7 +71,7 @@ def app():
         else:
             body.title("JAKA", 'get-started')
             body.write("Jadwal Aman, Kuliah Aman.")
-            body.markdown("<hr size="4" width="100%" color="f72585">", unsafe_allow_html=True)
+            body.markdown("""<hr size="4" width="100%" color="#f72585">""", unsafe_allow_html=True)
             
             about_text = """
                 Jaka is built to make Universitas Indonesia student's course scheduling easier, faster, seamless, and more intuitive than ever.
