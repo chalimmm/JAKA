@@ -27,7 +27,7 @@ def app():
 # #             pass
 # #         with col2 :
 #         is_login = st.form_submit_button('Login')
-    col1, col2, col3  = st.columns((3,1,3))
+    col1, col2, col3  = st.columns((3,2,3))
     with col1:
         pass
     with col3:
