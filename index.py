@@ -21,25 +21,47 @@ page_list = [
     ,'Schedule'
     # ,'View Plan'    
 ]
+st.markdown("""
+<style>
+div.stButton > button {
+    background-color: #f72585;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    width: 50%;
+}
+div.stButton > button:hover {
+    background-color: #f8f8f8;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 10px 20px 0 rgba(0,0,0,0.19);
+}
+</style>""", unsafe_allow_html=True)
 
-# st.markdown('<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">', unsafe_allow_html=True)
+st.markdown("""
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
+<style>
+h1 {
+font-family: 'Montserrat';font-size: 55px;
+font-weight: 900;
+}
+</style>""", unsafe_allow_html=True)
 
-# st.markdown("""
-# <ul class="nav nav-tabs">
-#   <li class="nav-item">
-#     <a class="nav-link active" href="#">Home</a>
-#   </li>
-#   <li class="nav-item">
-#     <a class="nav-link" href="#">Login</a>
-#   </li>
-#   <li class="nav-item">
-#     <a class="nav-link" href="#">Schedule</a>
-#   </li>
-#   <li class="nav-item">
-#     <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-#   </li>
-# </ul>
-# """, unsafe_allow_html=True)
+st.markdown("""
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;800&display=swap" rel="stylesheet">
+<style>
+p {
+font-family: 'Montserrat';font-size: 25px;
+}
+</style>""", unsafe_allow_html=True)
 
 h1, empty, h2 = st.columns((1, 4, 1))
 
