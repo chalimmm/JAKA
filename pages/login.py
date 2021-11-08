@@ -16,6 +16,12 @@ def app():
     with st.form('login_form', clear_on_submit=True):
         u = st.text_input('Username', max_chars=30)
         p = st.text_input('Password', type='password', max_chars=30)
+        with st.expander("See explanation"):
+            st.write("""
+                The chart above shows some numbers I picked for you.
+                I rolled actual dice for these, so they're *guaranteed* to
+                be random.
+            """)
         is_agree = st.checkbox('Saya telah membaca dan menyetujui Kebijakan Privasi JAKA')
         col1, col2, col3  = st.columns((3,1,3))
         with col1:
