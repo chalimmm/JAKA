@@ -69,10 +69,10 @@ def app():
         <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
         <style>
         h1 {
-        font-family: 'Montserrat';font-size: 22px;
+        font-family: 'Montserrat';font-size: 40px;
         }
         p {
-        font-family: 'Montserrat';font-size: 16px;
+        font-family: 'Montserrat';font-size: 25px;
         }
         </style>""", unsafe_allow_html=True)
         
