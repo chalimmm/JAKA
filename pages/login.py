@@ -12,7 +12,7 @@ def auth(username, password):
 
 def app():
     st.markdown("<h1 style='text-align: center;'>JAKA</h1>", unsafe_allow_html=True)
-    st.markdown("<p style='text-align: center;'>Sign in to your JAKA account.</p>", unsafe_allow_html=True)
+    st.markdown("<h2 style='text-align: center;'>Sign in to your JAKA account.</h2>", unsafe_allow_html=True)
     with st.form('login_form', clear_on_submit=True):
         u = st.text_input('Username', max_chars=30)
         p = st.text_input('Password', type='password', max_chars=30)
