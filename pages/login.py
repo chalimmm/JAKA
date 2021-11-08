@@ -32,11 +32,11 @@ def app():
         pass
     with col2:
         pass
-    with col4:
+    with col3:
         pass
     with col5:
         pass
-    with col3 :
+    with col4 :
         st.button("Login")
     if is_agree and is_login:
         return auth(u, p)
