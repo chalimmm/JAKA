@@ -92,7 +92,7 @@ with h2: # Dropdown menu
         options=page_list,
     )
 
-if menu == 'Home' and:
+if menu == 'Home':
     if st.session_state['start']:
         login.app()
     else:
