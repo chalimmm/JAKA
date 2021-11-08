@@ -41,7 +41,7 @@ page_list = [
 # </ul>
 # """, unsafe_allow_html=True)
 
-h1, h2 = st.columns((5, 1))
+h1, empty, h2 = st.columns((1, 4, 1))
 
 with h1: # Kolom kiri untuk logo
     st.write(" ")
