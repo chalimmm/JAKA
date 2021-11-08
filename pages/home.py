@@ -49,7 +49,7 @@ def app():
             body.success('Cieee udah ready nih')
         else:
             body.title("JAKA", 'get-started')
-            st.markdown("<h2>Jadwal Aman, Kuliah Aman.</h2>", unsafe_allow_html=True)
+            body.markdown("<h2>Jadwal Aman, Kuliah Aman.</h2>", unsafe_allow_html=True)
             #body.write("Jadwal Aman, Kuliah Aman.")
             #body.markdown("""<hr size="4px" width="100%" color="#f72585">""", unsafe_allow_html=True)
             
