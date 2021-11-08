@@ -59,6 +59,9 @@ st.markdown("""
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;800&display=swap" rel="stylesheet">
 <style>
 p {
+font-family: 'Montserrat';font-size: 12px;
+}
+h2 {
 font-family: 'Montserrat';font-size: 25px;
 }
 </style>""", unsafe_allow_html=True)
