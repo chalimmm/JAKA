@@ -85,11 +85,6 @@ def app():
             #body.markdown("""<hr size="4px" width="100%" color="#f72585">""", unsafe_allow_html=True)
             
             body.markdown("""
-            <h1>Montserrat</h1>
-            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
-            <p>123456790</p>
-            <p>ABCDEFGHIJKLMNOPQRSTUVWXYZ</p>
-            <p>abcdefghijklmnopqrstuvwxyz</p>
             <hr style="height:4px;border:none;color:#f72585;background-color:#f72585" /> """, unsafe_allow_html=True)
             
             about_text = """
