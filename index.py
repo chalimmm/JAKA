@@ -34,7 +34,7 @@ div.stButton > button {
     font-size: 16px;
     margin: 4px 2px;
     cursor: pointer;
-    width: 50%;
+    width: 100%;
 }
 div.stButton > button:hover {
     background-color: #f8f8f8;
