@@ -71,6 +71,9 @@ def app():
         h1 {
         font-family: 'Montserrat';font-size: 22px;
         }
+        p {
+        font-family: 'Montserrat';font-size: 16px;
+        }
         </style>""", unsafe_allow_html=True)
         
         if st.button("Get Started") or st.session_state['start']:
