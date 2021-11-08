@@ -34,9 +34,6 @@ def app():
         )
     
     with c1:
-        if 'start' not in st.session_state:
-            st.session_state['start'] = False
-        
         body = st.container()
         
         for i in range(2):
