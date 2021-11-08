@@ -90,8 +90,7 @@ with h2: # Dropdown menu
     )
 
 if menu == 'Home':
-    if home.app() : 
-        login.app()
+    home.app()
 elif menu == 'Schedule':
     schedule.app()
 elif menu == 'Login':
