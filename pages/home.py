@@ -70,6 +70,7 @@ def app():
         <style>
         h1 {
         font-family: 'Montserrat';font-size: 40px;
+        font-weight: Bold;
         }
         p {
         font-family: 'Montserrat';font-size: 25px;
