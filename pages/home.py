@@ -14,6 +14,9 @@ def load_lottieurl(url: str):
         return None
     return r.json()
 
+def startNow():
+    st.session_state['menu'] = 'Login'
+
 def app():
     c1, c2 = st.columns(2)
     
@@ -35,25 +38,23 @@ def app():
     
     with c1:
         body = st.container()
-        body.title(" \n ")
-        #st.warning(st.session_state['start'])
         
-        if st.button("Get Started") or st.session_state['start']:
-            st.session_state['start'] = True
-            return True
-        else:
-            body.title("JAKA", 'get-started')
-            body.markdown("<a>Jadwal Aman, Kuliah Aman.</a>", unsafe_allow_html=True)
-            #body.write("Jadwal Aman, Kuliah Aman.")
-            #body.markdown("""<hr size="4px" width="100%" color="#f72585">""", unsafe_allow_html=True)
+        for i in range(2):
+            body.write(' ')
             
-            body.markdown("""
-            <hr style="height:4px;border:none;color:#f72585;background-color:#f72585" /> """, unsafe_allow_html=True)
-            
-            about_text = """
-                <a>JAKA is built to make Universitas Indonesia student's course scheduling easier, faster, seamless, and more intuitive than ever.</a>
-            """
-            body.markdown(about_text, unsafe_allow_html=True)
-            for i in range(2):
-                body.write(' ')
-            return False
+        body.title("JAKA", 'get-started')
+        body.markdown("<a>Jadwal Aman, Kuliah Aman.</a>", unsafe_allow_html=True)
+        #body.write("Jadwal Aman, Kuliah Aman.")
+        #body.markdown("""<hr size="4px" width="100%" color="#f72585">""", unsafe_allow_html=True)
+        
+        body.markdown("""
+        <hr style="height:4px;border:none;color:#f72585;background-color:#f72585" /> """, unsafe_allow_html=True)
+        
+        about_text = """
+            <a>JAKA is built to make Universitas Indonesia student's course scheduling easier, faster, seamless, and more intuitive than ever.</a>
+        """
+        body.markdown(about_text, unsafe_allow_html=True)
+        for i in range(2):
+            body.write(' ')
+        
+        st.button("Start Now!", key='start-now', on_click=startNow())
