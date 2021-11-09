@@ -49,7 +49,7 @@ def app():
             width=None,
             key="lottie-schedule",
         )
-        is_modify = st.form_submit_button('Modify Schedule')
+        is_modify = st.button('Modify Schedule')
         
     with c3:
         lottie_url = "https://assets10.lottiefiles.com/packages/lf20_v6sxmrkx.json"
@@ -66,4 +66,4 @@ def app():
             width=None,
             key="lottie-schedule",
         )
-        is_delete = st.form_submit_button('Delete Schedule')
+        is_delete = st.button('Delete Schedule')
