@@ -79,15 +79,15 @@ if 'start' not in st.session_state:
     st.session_state['start'] = False
 
 with h1: # Kolom kiri untuk logo
-    st.write(" ")
-    st.write(" ")
-    st.image(
+#     st.write(" ")
+#     st.write(" ")
+    st.sidebar.image(
         'https://i.ibb.co/yP2wjhW/jaka-02.png',
         width=80
     )
 
 with h2: # Dropdown menu
-    menu = st.selectbox(
+    menu = st.sidebar.selectbox(
         label='Go To',
         options=page_list,
     )
