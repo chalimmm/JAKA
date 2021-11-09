@@ -35,7 +35,7 @@ def app():
     
     with c1:
         body = st.container()
-        st.title("", "home")
+        body.title(" \n ")
         #st.warning(st.session_state['start'])
         
         if st.button("Get Started") or st.session_state['start']:
