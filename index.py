@@ -79,9 +79,8 @@ if 'start' not in st.session_state:
     st.session_state['start'] = False
 
 with h1: # Kolom kiri untuk logo
-    st.markdown("[![this is an image link](upload://7FxfXwDqJIZdYJ2QYADywvNRjB.png)](https://streamlit.io)", unsafe_allow_html=True)
     st.markdown('''
-    <a href="https://jaka-id.web.app" target="_self"><img src="https://i.ibb.co/yP2wjhW/jaka-02.png" alt="Logo JAKA" style="width:75px;height:75px;"></a>
+    <a href="#home" target="_self"><img src="https://i.ibb.co/yP2wjhW/jaka-02.png" alt="Logo JAKA" style="width:75px;height:75px;"></a>
     ''', unsafe_allow_html=True)
 with h2: # Dropdown menu
     menu = st.selectbox(
@@ -90,6 +89,7 @@ with h2: # Dropdown menu
     )
 
 if menu == 'Home':
+    st.title("", "home")
     if st.session_state['start']:
         login.app()
     else:
