@@ -87,8 +87,6 @@ with h2: # Dropdown menu
         label='Go To',
         options=page_list,
     )
-with empty:
-    st.title(" ", "home")
 
 if menu == 'Home':
     if st.session_state['start']:
