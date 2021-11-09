@@ -62,7 +62,7 @@ def app():
             loop=True,
             quality="high", # small; medium ; high
             renderer="svg", # svg; canvas
-            height=None,
+            height=1,
             width=None,
             key="lottie-delete-schedule",
         )
