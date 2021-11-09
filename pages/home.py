@@ -38,20 +38,18 @@ def app():
     
     with c1:
         body = st.container()       
-        body.write(' ')
-        body.write(' ')
-            
+        for i in range(5):
+            body.write(' ')
         body.title("JAKA")
-        body.markdown("<a>Jadwal Aman, Kuliah Aman.</a>", unsafe_allow_html=True)
-        #body.write("Jadwal Aman, Kuliah Aman.")
-        #body.markdown("""<hr size="4px" width="100%" color="#f72585">""", unsafe_allow_html=True)
-        
         body.markdown("""
-        <hr style="height:4px;border:none;color:#f72585;background-color:#f72585" /> """, unsafe_allow_html=True)
+        <a>Jadwal Aman, Kuliah Aman.</a>
+        <hr style="height:4px;border:none;
+        color:#f72585;background-color:#f72585">
+        """, unsafe_allow_html=True)
         
         about_text = """
-            <a>JAKA is built to make Universitas Indonesia student's course scheduling easier, faster, seamless, and more intuitive than ever.</a>
-        """
+        <a>JAKA is built to make Universitas Indonesia student's course scheduling
+        easier, faster, seamless, and more intuitive than ever.</a>"""
         body.markdown(about_text, unsafe_allow_html=True)
         for i in range(2):
             body.write(' ')
