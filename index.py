@@ -83,7 +83,7 @@ with h1: # Kolom kiri untuk logo
 #     st.write(" ")
     st.sidebar.image(
         'https://i.ibb.co/yP2wjhW/jaka-02.png',
-        width=80
+        width=100
     )
 
 with h2: # Dropdown menu
