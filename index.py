@@ -17,9 +17,9 @@ hide_menu_style = """
 
 st.markdown(hide_menu_style, unsafe_allow_html=True)
 page_list = [
-    'Home'
-    ,'Schedule'
+    'Schedule'
     ,'Settings'
+    ,'Logout'
     # ,'View Plan'    
 ]
 st.markdown("""
@@ -74,6 +74,12 @@ a { font-family: 'Montserrat';font-size: 25px; }
 if 'menu' not in st.session_state:
     st.session_state['menu'] = 'Home'
 
+if 'isLogin' not in st.session_state:
+    st.session_state['isLogin'] = False
+    
+if 'isAgree' not in st.session_state:
+    st.session_state['isLogin'] = False
+
 if 'logged_in' not in st.session_state:
     st.session_state['logged_in'] = False
 
@@ -90,7 +96,8 @@ with h2: # Dropdown menu
     if st.session_state['logged_in']:
         st.session_state['menu'] = navBar.selectbox(
             label='Go To',
-            options=page_list    
+            options=page_list,
+            index=1
         )
 # st.warning(st.session_state['menu'])
 if st.session_state['menu'] == 'Home':
