@@ -1,5 +1,5 @@
 import streamlit as st
-from pages import home, login, error, schedule
+from pages import home, login, error, schedule, Settings
 
 st.set_page_config(
     page_title="JAKA",
@@ -19,6 +19,7 @@ page_list = [
     'Home'
     ,'Login'
     ,'Schedule'
+    ,'Settings'
     # ,'View Plan'    
 ]
 st.markdown("""
@@ -104,5 +105,7 @@ elif menu == 'Schedule':
     schedule.app()
 elif menu == 'Login':
     login.app()
+elif menu == 'Settings':
+    Settings.app()
 else:
     error.app(307)
