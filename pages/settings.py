@@ -15,7 +15,7 @@ def load_lottieurl(url: str):
     return r.json()
 
 def app():
-    c1, c2, c3 = st.columns(3)
+    c1, a1, c2, a2, c3 = st.columns((2, 1, 2, 1, 2))
     
     with c1:
         lottie_url = "https://assets10.lottiefiles.com/packages/lf20_zuiv9qn4.json"
