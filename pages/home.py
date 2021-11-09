@@ -37,7 +37,7 @@ def app():
         )
     
     with c1:
-        body = st.container()
+        body = st.container(key='body')
         
         for i in range(2):
             body.write(' ')
