@@ -86,7 +86,8 @@ with h1: # Kolom kiri untuk logo
         'https://i.ibb.co/yP2wjhW/jaka-02.png'
         ,width=100
     )
-
+with empty:
+    st.title(" ", "home")
 with h2: # Dropdown menu
     menu = st.selectbox(
         label='Go To',
