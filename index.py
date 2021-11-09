@@ -82,7 +82,7 @@ h1, empty, h2 = st.columns((1, 4, 1))
 with h1: # Kolom kiri untuk logo
     st.markdown('''
     <a href="javascript:location.reload(true)">
-    <img src="https://i.ibb.co/yP2wjhW/jaka-02.png" alt="Logo JAKA" style="width:75px;height:75px;">
+    <img src="https://i.ibb.co/yP2wjhW/jaka-02.png" alt="Logo JAKA" style="width:50px;height:50px;">
     </a>
     ''', unsafe_allow_html=True)
 with h2: # Dropdown menu
