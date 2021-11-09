@@ -35,10 +35,7 @@ def app():
     
     with c1:
         body = st.container()
-        
-        for i in range(2):
-            body.write(' ')
-        
+        st.title("", "home")
         #st.warning(st.session_state['start'])
         
         if st.button("Get Started") or st.session_state['start']:
