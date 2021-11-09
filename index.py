@@ -73,7 +73,7 @@ font-family: 'Montserrat';font-size: 25px;
 }
 </style>""", unsafe_allow_html=True)
 
-h1, empty, h2 = st.sidebar.columns((1, 4, 1))
+h1, empty, h2 = st.columns((1, 4, 1))
 
 if 'start' not in st.session_state:
     st.session_state['start'] = False
