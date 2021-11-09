@@ -106,6 +106,6 @@ elif menu == 'Schedule':
 elif menu == 'Login':
     login.app()
 elif menu == 'Settings':
-    Settings.app()
+    settings.app()
 else:
     error.app(307)
