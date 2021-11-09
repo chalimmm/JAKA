@@ -73,24 +73,27 @@ font-family: 'Montserrat';font-size: 25px;
 }
 </style>""", unsafe_allow_html=True)
 
-h1, empty, h2 = st.columns((1, 4, 1))
+# h1, empty, h2 = st.sidebar.columns((1, 4, 1))
 
 if 'start' not in st.session_state:
     st.session_state['start'] = False
 
-with h1: # Kolom kiri untuk logo
+# with h1: # Kolom kiri untuk logo
 #     st.write(" ")
 #     st.write(" ")
-    st.sidebar.image(
-        'https://i.ibb.co/yP2wjhW/jaka-02.png'
+#     st.image(
+#         'https://i.ibb.co/yP2wjhW/jaka-02.png'
 #         ,width=100
-    )
+#     )
 
-with h2: # Dropdown menu
-    menu = st.sidebar.selectbox(
-        label='Go To',
-        options=page_list,
-    )
+# with h2: # Dropdown menu
+#     menu = st.selectbox(
+#         label='Go To',
+#         options=page_list,
+#     )
+
+st.sidebar.image('https://i.ibb.co/yP2wjhW/jaka-02.png', width=150)
+menu = st.sidebar.selectbox(label='Go To', options=page_list)
 
 if menu == 'Home':
     if st.session_state['start']:
