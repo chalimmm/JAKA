@@ -3,7 +3,6 @@ from pages import home, login, error, schedule, settings
 
 st.set_page_config(
     page_title="JAKA",
-    page_icon="random",
     layout="wide"
 )
 
@@ -80,13 +79,14 @@ if 'start' not in st.session_state:
     st.session_state['start'] = False
 
 with h1: # Kolom kiri untuk logo
+    st.markdown('''
+    <a href="#"><img src="assets/jaka"/></a>
+    ''', unsafe_allow_html=True)
     st.write(" ")
     st.image(
         'https://i.ibb.co/yP2wjhW/jaka-02.png'
         ,width=75
     )
-with empty:
-    st.title(" ", "home")
 with h2: # Dropdown menu
     menu = st.selectbox(
         label='Go To',
