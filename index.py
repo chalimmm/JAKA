@@ -1,5 +1,7 @@
 import streamlit as st
-from pages import home, login, error, schedule, settings
+
+from streamlit.state.session_state import SessionState
+from pages import home, login, error, schedule, settings, welcome
 
 st.set_page_config(
     page_title="JAKA",
@@ -16,7 +18,6 @@ hide_menu_style = """
 st.markdown(hide_menu_style, unsafe_allow_html=True)
 page_list = [
     'Home'
-    ,'Login'
     ,'Schedule'
     ,'Settings'
     # ,'View Plan'    
@@ -48,17 +49,6 @@ div.stButton > button:hover {
     background-color: #f8f8f8;
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 10px 20px 0 rgba(0,0,0,0.19);
 }
-.st-ae,
-.st-af,
-.st-ag,
-.st-ah,
-.st-ai,
-.st-aj,
-.st-bb,
-.st-bc,
-.st-b7{
-    cursor: pointer;
-}
 </style>""", unsafe_allow_html=True)
 
 st.markdown("""
@@ -68,7 +58,7 @@ st.markdown("""
 <style>
 h1 {
 font-family: 'Montserrat';font-size: 55px;
-font-weight: 900;
+font-weight: 900;   
 }
 </style>""", unsafe_allow_html=True)
 
@@ -81,31 +71,35 @@ p { font-family: 'Montserrat';font-size: 12px; }
 a { font-family: 'Montserrat';font-size: 25px; }
 </style>""", unsafe_allow_html=True)
 
-h1, empty, h2 = st.columns((1, 4, 1))
+if 'menu' not in st.session_state:
+    st.session_state['menu'] = 'Home'
 
-if 'start' not in st.session_state:
-    st.session_state['start'] = False
+if 'logged_in' not in st.session_state:
+    st.session_state['logged_in'] = False
+
+h1, empty, h2 = st.columns((1, 4, 1))
 
 with h1: # Kolom kiri untuk logo
     st.markdown('''
-    <a href="javascript:location.reload(true)"><img src="https://i.ibb.co/yP2wjhW/jaka-02.png" alt="Logo JAKA" style="width:75px;height:75px;"></a>
+    <a href="javascript:location.reload(true)">
+    <img src="https://i.ibb.co/yP2wjhW/jaka-02.png" alt="Logo JAKA" style="width:75px;height:75px;">
+    </a>
     ''', unsafe_allow_html=True)
 with h2: # Dropdown menu
-    menu = st.selectbox(
-        label='Go To',
-        options=page_list,
-    )
-
-if menu == 'Home':
-    if st.session_state['start']:
-        login.app()
-    else:
-        home.app()
-elif menu == 'Schedule':
+    navBar = st.container()
+    if st.session_state['logged_in']:
+        st.session_state['menu'] = navBar.selectbox(
+            label='Go To',
+            options=page_list    
+        )
+# st.warning(st.session_state['menu'])
+if st.session_state['menu'] == 'Home':
+    home.app()
+elif st.session_state['menu'] == 'Schedule':
     schedule.app()
-elif menu == 'Login':
+elif st.session_state['menu'] == 'Login':
     login.app()
-elif menu == 'Settings':
+elif st.session_state['menu'] == 'Settings':
     settings.app()
 else:
     error.app(307)
