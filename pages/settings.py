@@ -30,7 +30,7 @@ def app():
             renderer="svg", # svg; canvas
             height=None,
             width=None,
-            key="lottie-schedule",
+            key="lottie-create-schedule",
         )
         is_create = st.button('Create Schedule')
         
@@ -47,7 +47,7 @@ def app():
             renderer="svg", # svg; canvas
             height=None,
             width=None,
-            key="lottie-schedule",
+            key="lottie-modify-schedule",
         )
         is_modify = st.button('Modify Schedule')
         
@@ -64,6 +64,6 @@ def app():
             renderer="svg", # svg; canvas
             height=None,
             width=None,
-            key="lottie-schedule",
+            key="lottie-delete-schedule",
         )
         is_delete = st.button('Delete Schedule')
