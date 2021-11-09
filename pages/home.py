@@ -37,12 +37,11 @@ def app():
         )
     
     with c1:
-        body = st.container(key='body')
-        
-        for i in range(2):
-            body.write(' ')
+        body = st.container()       
+        body.write(' ')
+        body.write(' ')
             
-        body.title("JAKA", 'get-started')
+        body.title("JAKA")
         body.markdown("<a>Jadwal Aman, Kuliah Aman.</a>", unsafe_allow_html=True)
         #body.write("Jadwal Aman, Kuliah Aman.")
         #body.markdown("""<hr size="4px" width="100%" color="#f72585">""", unsafe_allow_html=True)
