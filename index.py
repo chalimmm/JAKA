@@ -80,7 +80,7 @@ if 'start' not in st.session_state:
 
 with h1: # Kolom kiri untuk logo
     st.markdown('''
-    <a href="href="javascript:location.reload(true)"" target="_self"><img src="https://i.ibb.co/yP2wjhW/jaka-02.png" alt="Logo JAKA" style="width:75px;height:75px;"></a>
+    <a href="href="javascript:location.reload(true)"><img src="https://i.ibb.co/yP2wjhW/jaka-02.png" alt="Logo JAKA" style="width:75px;height:75px;"></a>
     ''', unsafe_allow_html=True)
 with h2: # Dropdown menu
     menu = st.selectbox(
