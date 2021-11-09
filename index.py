@@ -80,16 +80,13 @@ if 'start' not in st.session_state:
 
 with h1: # Kolom kiri untuk logo
     st.markdown('''
-    <a href="#home"><img src="https://i.ibb.co/yP2wjhW/jaka-02.png" alt="Logo JAKA" style="width:75px;height:75px;"></a>
+    <a href="https://jaka-id.web.app" target="_self"><img src="https://i.ibb.co/yP2wjhW/jaka-02.png" alt="Logo JAKA" style="width:75px;height:75px;"></a>
     ''', unsafe_allow_html=True)
 with h2: # Dropdown menu
     menu = st.selectbox(
         label='Go To',
         options=page_list,
     )
-
-# st.sidebar.image('https://i.ibb.co/yP2wjhW/jaka-02.png', width=150)
-# menu = st.sidebar.selectbox(label='Go To', options=page_list)
 
 if menu == 'Home':
     if st.session_state['start']:
