@@ -1,6 +1,10 @@
 import streamlit as st
 import pyrebase
 import hashlib
+import subprocess
+
+check_u = 'admin'
+check_p = 'admin'
 
 def auth(u, p):
     # Configuration Key
@@ -37,7 +41,9 @@ def auth(u, p):
             pass
         try:
             user = auth.sign_in_with_email_and_password(email, passwd)
+            # st.success('Welcome ' + u)
             st.session_state['logged_in'] = st.session_state['isAgree']
+            subprocess.call(["pytest", "SeleniumBase/scraping.py"])
         except:
             # st.error('INVALID USERNAME OR PASSWORD!')
             pass
