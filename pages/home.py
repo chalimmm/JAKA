@@ -2,7 +2,7 @@ import streamlit as st
 import json
 import requests
 from streamlit_lottie import st_lottie
-from pages import error
+#from pages import error
 
 def load_lottiefile(filepath: str):
     with open(filepath, "r") as f:
