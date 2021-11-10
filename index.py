@@ -105,13 +105,14 @@ with menu: # Dropdown menu
 if st.session_state['menu'] == 'Home':
     home.app()
 elif st.session_state['menu'] == 'Schedule':
-    del st.session_state['actions']
+    st.session_state['actions'] = 0
     schedule.app()
 elif st.session_state['menu'] == 'Login':
     login.app()
 elif st.session_state['menu'] == 'Logout':
     login.out()
 elif st.session_state['menu'] == 'Settings':
+    st.session_state['actions'] = 1
     settings.app()
 else:
     error.app(307)
