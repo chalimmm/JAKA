@@ -44,6 +44,7 @@ def auth(u, p):
             # st.error('INVALID USERNAME OR PASSWORD!')
             pass
         st.session_state['logged_in'] = st.session_state['isAgree']
+        st.session_state['menu'] = 'Settings'
         
 def app():
     st.markdown("<h1 style='text-align: center;'>JAKA</h1>", unsafe_allow_html=True)
