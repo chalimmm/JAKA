@@ -19,6 +19,8 @@ def changeAction(x):
 
 def app():
     st.markdown("<center><h1 style='text-align: center;'>What Do You Want To Do?</h1></center>", unsafe_allow_html=True)
+    
+    st.info('Actions: '+st.session_state['actions'])
     c1, a1, c2, a2, c3 = st.columns((2, 1, 2, 1, 2))
     
     with c1:
