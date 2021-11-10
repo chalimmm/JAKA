@@ -23,9 +23,12 @@ def auth(u, p):
     # Database
     db = firebase.database()
     
-    if st.session_state['isAgree'] and u is not None and p is not None:
-        email = u + '@ui.ac.id'
-        passwd = hashlib.sha3_256(p.encode('utf-8')).hexdigest()
+    email = "username"
+    email = u + '@ui.ac.id'
+    passwd = "password"
+    passwd = hashlib.sha3_256(p.encode('utf-8')).hexdigest()
+    
+    if st.session_state['isAgree'] and email != "username" and passwd != "password":
         try:
             user = auth.sign_in_with_email_and_password(email, passwd)
             st.session_state['logged_in'] = st.session_state['isAgree']
