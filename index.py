@@ -100,9 +100,7 @@ with logo: # Kolom kiri untuk logo
 with menu: # Dropdown menu
     navBar = st.container()
     if st.session_state['logged_in']:
-		navBar.selectbox(label='Go To',options=page_list,index=st.session_state['actions'],key='menu')
-
-navBar.info("Actions : ", st.session_state['actions'])
+        navBar.selectbox(label='Go To',options=page_list,index=st.session_state['actions'],key='menu')
 
 if st.session_state['menu'] == 'Home':
     home.app()
