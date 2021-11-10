@@ -43,7 +43,7 @@ def auth(u, p):
             user = auth.sign_in_with_email_and_password(email, passwd)
             # st.success('Welcome ' + u)
             st.session_state['logged_in'] = st.session_state['isAgree']
-            subprocess.call(["pytest", "SeleniumBase/scraping.py"])
+            # subprocess.call(["pytest", "SeleniumBase/scraping.py"])
         except:
             # st.error('INVALID USERNAME OR PASSWORD!')
             pass
