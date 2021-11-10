@@ -103,6 +103,7 @@ with menu: # Dropdown menu
     	navBar.selectbox(
 	label='Go To',
 	options=page_list,
+	index=1,
 	key='menu')
 	
 if st.session_state['menu'] == 'Home':
