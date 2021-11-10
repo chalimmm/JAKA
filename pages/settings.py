@@ -14,7 +14,7 @@ def load_lottieurl(url: str):
         return None
     return r.json()
 
-def actionSetting(x):
+def changeAction(x):
     st.session_state['action'] = x
 
 def app():
@@ -36,7 +36,7 @@ def app():
             width=None,
             key="lottie-create-schedule",
         )
-        st.button("Create Schedule", key='create-schedule', on_click=settingsAction(0))
+        st.button("Create Schedule", key='create-schedule', on_click=changeAction(1))
         
     with c2:
         lottie_url = "https://assets5.lottiefiles.com/packages/lf20_7k4anl64.json"
@@ -53,7 +53,7 @@ def app():
             width=None,
             key="lottie-modify-schedule",
         )
-        is_modify = st.button('Modify Schedule')
+        st.button('Modify Schedule', key='modify-schedule', on_click=changeAction(1))
         
     with c3:
         lottie_url = "https://assets10.lottiefiles.com/packages/lf20_v6sxmrkx.json"
@@ -70,4 +70,4 @@ def app():
             width=None,
             key="lottie-delete-schedule",
         )
-        is_delete = st.button('Delete Schedule')
+        st.button('Delete Schedule', key='delete-schedule', on_click=changeAction(1))
