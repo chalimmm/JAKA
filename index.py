@@ -101,11 +101,11 @@ with menu: # Dropdown menu
     navBar = st.container()
     if st.session_state['logged_in']:
 	navBar.selectbox(
-	label='Go To',
-	options=page_list,
-	index=st.session_state['actions'],
-	key='menu')
-	st.info("Actions : ", st.session_state['actions'])
+	   label='Go To',
+	   options=page_list,
+	   index=st.session_state['actions'],
+	   key='menu')
+	navBar.info("Actions : ", st.session_state['actions'])
 	
 if st.session_state['menu'] == 'Home':
     home.app()
