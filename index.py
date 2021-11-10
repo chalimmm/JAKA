@@ -97,17 +97,13 @@ with logo: # Kolom kiri untuk logo
 with menu: # Dropdown menu
     navBar = st.container()
     if st.session_state['logged_in']:
-    	presets = 0
-    	for i in page_list:
-	    if st.session_state['menu'] == page_list[i]:
-		presets = i
-		break
     	navBar.selectbox(
 	label='Go To',
 	options=page_list,
 	index=current,
 	key='page',
-	on_change=menuCallback)
+	index=1,
+	on_change=menuCallback())
 	
 if st.session_state['menu'] == 'Home':
     home.app()
