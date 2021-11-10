@@ -83,8 +83,8 @@ if 'isAgree' not in st.session_state:
 if 'logged_in' not in st.session_state:
     st.session_state['logged_in'] = False
 
-if 'page' not in st.session_state:
-    st.session_state.my_button = 'Settings'
+if 'actions' not in st.session_state:
+    st.session_state['actions'] = 1
 
 # def menuCallback():
 #     st.session_state['menu'] = st.session_state['page']
@@ -103,7 +103,7 @@ with menu: # Dropdown menu
     	navBar.selectbox(
 	label='Go To',
 	options=page_list,
-	index=1,
+	index=st.session_state['actions'],
 	key='menu')
 	
 if st.session_state['menu'] == 'Home':
