@@ -1,7 +1,5 @@
 import streamlit as st
-
-from streamlit.state.session_state import SessionState
-from pages import home, login, error, schedule, settings, welcome
+from pages import home, login, error, schedule, settings
 
 st.set_page_config(
     page_title="JAKA",
@@ -69,7 +67,9 @@ st.markdown("""
 <style>
 p { font-family: 'Montserrat';font-size: 12px; }
 a { font-family: 'Montserrat';font-size: 25px; }
-</style>""", unsafe_allow_html=True)
+</style>""", unsafe_allow_html=True) 
+
+# Init Session State
 
 if 'menu' not in st.session_state:
     st.session_state['menu'] = 'Home'
@@ -83,15 +83,15 @@ if 'isAgree' not in st.session_state:
 if 'logged_in' not in st.session_state:
     st.session_state['logged_in'] = False
 
-h1, empty, h2 = st.columns((1, 4, 1))
+logo, empty, menu = st.columns((1, 3, 1))
 
-with h1: # Kolom kiri untuk logo
+with logo: # Kolom kiri untuk logo
     st.markdown('''
     <a href="javascript:location.reload(true)">
     <img src="https://i.ibb.co/yP2wjhW/jaka-02.png" alt="Logo JAKA" style="width:50px;height:50px;">
     </a>
     ''', unsafe_allow_html=True)
-with h2: # Dropdown menu
+with menu: # Dropdown menu
     navBar = st.container()
     if st.session_state['logged_in']:
         st.session_state['menu'] = navBar.selectbox(
@@ -99,13 +99,15 @@ with h2: # Dropdown menu
             options=page_list,
             index=1
         )
-# st.warning(st.session_state['menu'])
+
 if st.session_state['menu'] == 'Home':
     home.app()
 elif st.session_state['menu'] == 'Schedule':
     schedule.app()
 elif st.session_state['menu'] == 'Login':
     login.app()
+elif st.session_state['menu'] == 'Logout':
+    login.out()
 elif st.session_state['menu'] == 'Settings':
     settings.app()
 else:
