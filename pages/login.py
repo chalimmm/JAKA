@@ -74,4 +74,6 @@ def out():
     left, center, right = st.columns([1, 2, 1])
     with center:
         st.markdown("<center><a style='text-align: center;'>Yakin mau keluar?</a></center>", unsafe_allow_html=True)
+        st.write(" ")
+        st.write(" ")
         st.button('Iya, yakin.', on_click=reset())
