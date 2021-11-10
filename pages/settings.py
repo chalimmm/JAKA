@@ -15,7 +15,7 @@ def load_lottieurl(url: str):
     return r.json()
 
 def app():
-    st.markdown("<center><a style='text-align: center;'>What Do You Want To Do?</a></center>", unsafe_allow_html=True)
+    st.markdown("<center><h1 style='text-align: center;'>What Do You Want To Do?</h1></center>", unsafe_allow_html=True)
     c1, a1, c2, a2, c3 = st.columns((2, 1, 2, 1, 2))
     
     with c1:
