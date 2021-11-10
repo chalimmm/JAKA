@@ -30,8 +30,7 @@ def auth(u, p):
     
     if st.session_state['isAgree'] and email != "username" and passwd != "password":
         try:
-            user = auth.sign_in_with_email_and_password(email, passwd)
-            st.session_state['logged_in'] = st.session_state['isAgree']
+            user = auth.sign_in_with_email_and_password(email, passwd) 
         except:
             # st.error('EMAIL EXIST!')
             pass
@@ -44,6 +43,7 @@ def auth(u, p):
         except:
             # st.error('INVALID USERNAME OR PASSWORD!')
             pass
+        st.session_state['logged_in'] = st.session_state['isAgree']
         
 def app():
     st.markdown("<h1 style='text-align: center;'>JAKA</h1>", unsafe_allow_html=True)
