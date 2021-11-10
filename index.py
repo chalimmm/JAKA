@@ -93,12 +93,6 @@ with logo: # Kolom kiri untuk logo
     ''', unsafe_allow_html=True)
 with menu: # Dropdown menu
     navBar = st.container()
-    if st.session_state['logged_in']:
-        st.session_state['menu'] = navBar.selectbox(
-            label='Go To',
-            options=page_list,
-            index=1
-        )
 
 if st.session_state['menu'] == 'Home':
     home.app()
@@ -110,5 +104,11 @@ elif st.session_state['menu'] == 'Logout':
     login.out()
 elif st.session_state['menu'] == 'Settings':
     settings.app()
+elif st.session_state['logged_in']:
+    st.session_state['menu'] = navBar.selectbox(
+    	label='Go To',
+        options=page_list,
+        index=1
+    )
 else:
     error.app(307)
