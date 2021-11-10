@@ -2,3 +2,4 @@ requests
 streamlit
 streamlit-lottie==0.0.2
 Pyrebase==3.0.27
+hashlib
