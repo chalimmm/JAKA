@@ -105,6 +105,7 @@ with menu: # Dropdown menu
 if st.session_state['menu'] == 'Home':
     home.app()
 elif st.session_state['menu'] == 'Schedule':
+    del st.session_state['actions']
     schedule.app()
 elif st.session_state['menu'] == 'Login':
     login.app()
