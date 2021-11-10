@@ -99,14 +99,15 @@ with menu: # Dropdown menu
     if st.session_state['logged_in']:
     	presets = 0
     	for i in page_list:
-		if st.session_state['menu'] == page_list[i]:
+	    if st.session_state['menu'] == page_list[i]:
 		presets = i
+		break
     	navBar.selectbox(
-		label='Go To',
-		options=page_list,
-		index=current,
-		key='page',
-		on_change=menuCallback)
+	label='Go To',
+	options=page_list,
+	index=current,
+	key='page',
+	on_change=menuCallback)
 	
 if st.session_state['menu'] == 'Home':
     home.app()
