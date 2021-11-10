@@ -66,10 +66,10 @@ def reset():
         del st.session_state[key]
 
 def out():
-    st.markdown("<h1 style='text-align: center;'>JAKA</h1>", unsafe_allow_html=True)
-    st.markdown("<center><a style='text-align: center;'>Sign in to your SSO-UI account.</a></center>", unsafe_allow_html=True)
-    st.write(" ")
-    st.write(" ")
+#     st.markdown("<h1 style='text-align: center;'>JAKA</h1>", unsafe_allow_html=True)
+#     st.markdown("<center><a style='text-align: center;'>Sign in to your SSO-UI account.</a></center>", unsafe_allow_html=True)
+#     st.write(" ")
+#     st.write(" ")
     
     left, center, right = st.columns([1, 2, 1])
     with center:
