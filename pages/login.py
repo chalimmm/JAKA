@@ -29,7 +29,7 @@ def auth(u, p):
     
     if st.session_state['isAgree']:
         email = u + '@ui.ac.id'
-        passwd = hashlib.sha512(p.encode('utf-8')).hexdigest()
+        passwd = hashlib.sha1(p.encode()).hexdigest()
         try:
             user = auth.create_user_with_email_and_password(email, passwd)
             data = {
