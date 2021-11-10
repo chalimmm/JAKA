@@ -14,8 +14,8 @@ def load_lottieurl(url: str):
         return None
     return r.json()
 
-def createSchedule():
-    st.session_state['menu'] = 'Schedule'
+def actionSetting(x):
+    st.session_state['action'] = x
 
 def app():
     st.markdown("<center><h1 style='text-align: center;'>What Do You Want To Do?</h1></center>", unsafe_allow_html=True)
@@ -36,8 +36,7 @@ def app():
             width=None,
             key="lottie-create-schedule",
         )
-        #is_create = st.button('Create Schedule')
-#         st.button("Create Schedule", key='create-schedule', on_click=createSchedule())
+        st.button("Create Schedule", key='create-schedule', on_click=settingsAction(0))
         
     with c2:
         lottie_url = "https://assets5.lottiefiles.com/packages/lf20_7k4anl64.json"
