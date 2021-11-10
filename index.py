@@ -83,6 +83,9 @@ if 'isAgree' not in st.session_state:
 if 'logged_in' not in st.session_state:
     st.session_state['logged_in'] = False
 
+def menuCallback():
+	st.session_state['menu'] = st.session_state['page']
+
 logo, empty, menu = st.columns((1, 3, 1))
 
 with logo: # Kolom kiri untuk logo
@@ -93,7 +96,18 @@ with logo: # Kolom kiri untuk logo
     ''', unsafe_allow_html=True)
 with menu: # Dropdown menu
     navBar = st.container()
-
+    if st.session_state['logged_in']:
+    	presets = 0
+    	for i in page_list:
+		if st.session_state['menu'] == page_list[i]:
+		presets = i
+    	navBar.selectbox(
+		label='Go To',
+		options=page_list,
+		index=current,
+		key='page',
+		on_change=menuCallback)
+	
 if st.session_state['menu'] == 'Home':
     home.app()
 elif st.session_state['menu'] == 'Schedule':
@@ -104,11 +118,5 @@ elif st.session_state['menu'] == 'Logout':
     login.out()
 elif st.session_state['menu'] == 'Settings':
     settings.app()
-elif st.session_state['logged_in']:
-    st.session_state['menu'] = navBar.selectbox(
-    	label='Go To',
-        options=page_list,
-        index=1
-    )
 else:
     error.app(307)
