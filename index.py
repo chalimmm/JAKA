@@ -83,8 +83,11 @@ if 'isAgree' not in st.session_state:
 if 'logged_in' not in st.session_state:
     st.session_state['logged_in'] = False
 
+if 'page' not in st.session_state:
+    st.session_state.my_button = 'Settings'
+
 def menuCallback():
-	st.session_state['menu'] = st.session_state['page']
+    st.session_state['menu'] = st.session_state['page']
 
 logo, empty, menu = st.columns((1, 3, 1))
 
