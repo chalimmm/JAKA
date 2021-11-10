@@ -100,7 +100,6 @@ with menu: # Dropdown menu
     	navBar.selectbox(
 	label='Go To',
 	options=page_list,
-	index=current,
 	key='page',
 	index=1,
 	on_change=menuCallback())
