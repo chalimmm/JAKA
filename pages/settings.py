@@ -15,7 +15,7 @@ def load_lottieurl(url: str):
     return r.json()
 
 def changeAction(x):
-    st.session_state['action'] = x
+    st.session_state['actions'] = x
 
 def app():
     st.markdown("<center><h1 style='text-align: center;'>What Do You Want To Do?</h1></center>", unsafe_allow_html=True)
