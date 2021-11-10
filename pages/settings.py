@@ -37,7 +37,7 @@ def app():
             key="lottie-create-schedule",
         )
         #is_create = st.button('Create Schedule')
-        st.button("Create Schedule", key='create-schedule', on_click=createSchedule())
+#         st.button("Create Schedule", key='create-schedule', on_click=createSchedule())
         
     with c2:
         lottie_url = "https://assets5.lottiefiles.com/packages/lf20_7k4anl64.json"
