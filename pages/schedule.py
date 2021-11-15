@@ -2,24 +2,68 @@ import streamlit as st
 
 courses = [
     {
-        'name'  : 'Course 1',
+        'name'  : 'Analisis Algoritma',
         'sks'   : 3,
         'term'  : 4,
         'sched' : [
                     'Rekomendasi Jaka'
-                    ,'MON13001500'
-                    ,'TUE13001500'
+                    ,'Senin, 13.00-15.30'
+                    ,'Selasa, 13.00-15.30'
                   ],
         'selected' : 'No'
     },
     {
-        'name'  : 'Course 2',
+        'name'  : 'MPKT',
+        'sks'   : 4,
+        'term'  : 2,
+        'sched' : [
+                    'Rekomendasi Jaka'
+                    ,'Rabu, 16.00-18.30'
+                    ,'Jumat, 13.00-15.30'
+                  ],
+        'selected' : 'No'
+    },
+    {
+        'name'  : 'Probabilitas dan Proses Stokastik',
         'sks'   : 3,
         'term'  : 4,
         'sched' : [
                     'Rekomendasi Jaka'
-                    ,'MON13001500'
-                    ,'TUE13001500'
+                    ,'Senin, 07.00-09.30'
+                    ,'Rabu, 16.00-18.30'
+                  ],
+        'selected' : 'No'
+    },
+    {
+        'name'  : 'Sistem Basis Data dan Praktikum',
+        'sks'   : 3,
+        'term'  : 4,
+        'sched' : [
+                    'Rekomendasi Jaka'
+                    ,'Rabu, 10.00-12.30'
+                    ,'Kamis, 10.00-12.30'
+                  ],
+        'selected' : 'No'
+    },
+    {
+        'name'  : 'Sistem Operasi',
+        'sks'   : 2,
+        'term'  : 4,
+        'sched' : [
+                    'Rekomendasi Jaka'
+                    ,'Senin, 16.00-17.40'
+                    ,'Rabu, 16.00-17.40'
+                  ],
+        'selected' : 'No'
+    },
+    {
+        'name'  : 'Teori Sinyal dan Analisis Sistem',
+        'sks'   : 2,
+        'term'  : 5,
+        'sched' : [
+                    'Rekomendasi Jaka'
+                    ,'Selasa, 08.00-09.40'
+                    ,'Kamis, 13.00-14.40'
                   ],
         'selected' : 'No'
     }
