@@ -34,7 +34,7 @@ def app():
     
     left, center, right = st.columns([1, 2, 1])
     with center:
-        with st.form():
+        with st.form('loginForm'):
             u = st.text_input('Username', max_chars=30)
             p = st.text_input('Password', type='password', max_chars=30)
             with st.expander("Kebijakan Privasi JAKA"):
