@@ -1,5 +1,5 @@
 import streamlit as st
-from pages import home, login, error, schedule, settings
+from pages import home, login, error, schedule, chooseSchedule, settings
 
 st.set_page_config(
     page_title="JAKA",
@@ -106,7 +106,7 @@ if st.session_state['menu'] == 'Home':
     home.app()
 elif st.session_state['menu'] == 'Schedule':
     st.session_state['actions'] = 0
-    schedule.app()
+    chooseSchedule.app()
 elif st.session_state['menu'] == 'Login':
     login.app()
 elif st.session_state['menu'] == 'Logout':
