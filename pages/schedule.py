@@ -5,7 +5,11 @@ from firebase_admin import firestore
 
 def FilterCourse():
     db = firestore.client()
-
+    
+    courses = db.collection('users').document(st.session_state['username']).get()
+    courses = courses.to_dict()
+    courses = courses['listCourse']
+    
     for course in courses:
         getData = db.collection('courses').document(course).get()
         if getData.exists:
