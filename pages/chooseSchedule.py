@@ -11,11 +11,11 @@ def app():
     with c1:
         with st.expander("Course 1"):
             course1_sched = ['Hari Pertama', 'Hari Kedua', 'Pilih sesuai rekomendasi dari JAKA']
-            cours1 = st.radio('Pilih Kelas yang Diinginkan:', course1_sched)
+            cours1 = st.radio('Pilih Kelas yang Diinginkan:', course1_sched, key='cours1')
     
         with st.expander("Course 2"):
             course2_sched = ['Hari Pertama', 'Hari Kedua', 'Pilih sesuai rekomendasi dari JAKA']
-            cours2 = st.radio('Pilih Kelas yang Diinginkan:', course2_sched)
+            cours2 = st.radio('Pilih Kelas yang Diinginkan:', course2_sched, key='cours2')
         
         with st.expander("Course 3"):
             course3_sched = ['Hari Pertama', 'Hari Kedua', 'Pilih sesuai rekomendasi dari JAKA']
