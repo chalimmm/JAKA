@@ -20,7 +20,8 @@ def changeAction(x):
     st.session_state['actions'] = int(x)
     if x == 0:
         st.session_state['menu'] = 'Login'
-    
+
+@st.cache(persist=True, suppress_st_warning=True)
 def app():
     st.markdown("<center><h1 style='text-align: center;'>What Do You Want To Do?</h1></center>", unsafe_allow_html=True)
     
