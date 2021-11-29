@@ -21,6 +21,7 @@ def authFirebase(u, p):
         st.session_state['logged_in'] = True
         st.success('You are authorized.')
         st.success('Logging in to JAKA')
+        st.session_state['menu'] = 'Setting'
     else:
         st.warning('Sorry, you are not authorized.')
         st.warning('Wrong username or password.')        
