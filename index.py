@@ -78,7 +78,7 @@ if 'isLogin' not in st.session_state:
     st.session_state['isLogin'] = False
     
 if 'isAgree' not in st.session_state:
-    st.session_state['isLogin'] = False
+    st.session_state['isAgree'] = False
 
 if 'logged_in' not in st.session_state:
     st.session_state['logged_in'] = False
