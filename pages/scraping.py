@@ -144,7 +144,7 @@ for course in courses:
             db.collection('courses').document(course).update(courses[course])
     else:
         db.collection('courses').document(course).set(courses[course])
-    listCourse.add(course)
+    listCourse.append(course)
 
 db.collection('users').document(sys.argv[1]).set({ 'listCourse' : listCourse })
 check = db.collection('users').document(sys.argv[1]).get()
