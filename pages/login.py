@@ -23,8 +23,8 @@ def authFirebase(u, p):
         st.success('You are authorized.')
         st.success('Logging in to JAKA')
     else:
-        st.warning('Sorry, you are not authorized.")
-        st.warning('Wrong username or password.")        
+        st.warning('Sorry, you are not authorized.')
+        st.warning('Wrong username or password.')        
         
 def app():
     st.markdown("<h1 style='text-align: center;'>JAKA</h1>", unsafe_allow_html=True)
