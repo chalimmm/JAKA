@@ -86,6 +86,9 @@ if 'logged_in' not in st.session_state:
 if 'actions' not in st.session_state:
     st.session_state['actions'] = 1
 
+if 'username' not in st.session_state:
+    st.session_state['username'] = 'username'
+
 # def menuCallback():
 #     st.session_state['menu'] = st.session_state['page']
 
