@@ -1,55 +1,28 @@
 import streamlit as st
-import pyrebase
-import hashlib
 import subprocess
 
 def authFirebase(u, p):
-    # Configuration Key
-    firebaseConfig = {
-        'apiKey': "AIzaSyA-QKAvK7mW2P_Fvzmd__m2jrEXDb2Yg3M",
-        'authDomain': "jaka-id.firebaseapp.com",
-        'projectId': "jaka-id",
-        'databaseURL': "https://db-iaicg-default-rtdb.europe-west1.firebasedatabase.app",
-        'projectId': "db-iaicg",
-        'storageBucket': "jaka-id.appspot.com",
-        'messagingSenderId': "1028592956608",
-        'appId': "1:1028592956608:web:4449ccd5451f20b1946925",
-        'measurementId': "G-CG71PW8JT8"
-    }
-
-    # Firebase Authentication
-    firebase = pyrebase.initialize_app(firebaseConfig)
-    auth = firebase.auth()
-
-    # Database
-    db = firebase.database()
-
     with st.spinner('Authenticating...'):
         subprocess.call(["python", "pages/scraping.py", u, p])
     
-    email = u + '@ui.ac.id'
-    passwd = hashlib.sha256(u.encode('utf-8')).hexdigest()
-    try:
-        user = auth.create_user_with_email_and_password(email, passwd)
-        data = {
-            email: {
-                "username": u
-            }
-        }
+    ### FIRESTORE SECTION ###
+    import firebase_admin
+    from firebase_admin import credentials
+    from firebase_admin import firestore
 
-        db.child("users").push(data, user['idToken'])
-    except:
-        pass
-    try:
-        user = auth.sign_in_with_email_and_password(email, passwd)
-        # st.success('Welcome ' + u)
-        st.session_state['logged_in'] = st.session_state['isAgree']
+    cred = credentials.Certificate("serviceAccountKey.json")
+    firebase_admin.initialize_app(cred)
 
-        st.session_state['menu'] = 'Settings'
-        st.session_state['temp'] = 1
-        st.success('Authenticated')
-    except:
-        st.warning('Authentication Failed')     
+    db = firestore.client()
+
+    users = db.collection('users').document(u).get()
+    
+    if users.exists and st.session_state['isAgree']:
+        st.session_state['username'] = u
+        st.session_state['logged_in'] = True
+        st.success('You are authorized.\nLogging in to JAKA.')
+    else:
+        st.warning('Sorry, you are not authorized.\nPlease check username and password then try again.")        
         
 def app():
     st.markdown("<h1 style='text-align: center;'>JAKA</h1>", unsafe_allow_html=True)
