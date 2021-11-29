@@ -1,17 +1,17 @@
 import streamlit as st
 import subprocess
+### FIRESTORE SECTION ###
+import firebase_admin
+from firebase_admin import credentials
+from firebase_admin import firestore
+
+cred = credentials.Certificate("pages/serviceAccountKey.json")
+firebase_admin.initialize_app(cred)
+
 
 def authFirebase(u, p):
     with st.spinner('Authenticating...'):
         subprocess.call(["python", "pages/scraping.py", u, p])
-    
-    ### FIRESTORE SECTION ###
-    import firebase_admin
-    from firebase_admin import credentials
-    from firebase_admin import firestore
-
-    cred = credentials.Certificate("pages/serviceAccountKey.json")
-    firebase_admin.initialize_app(cred)
 
     db = firestore.client()
 
