@@ -19,27 +19,27 @@ def app():
         
         with st.expander("Course 3"):
             course3_sched = ['Hari Pertama', 'Hari Kedua', 'Pilih sesuai rekomendasi dari JAKA']
-            cours3 = st.radio('Pilih Kelas yang Diinginkan:', course3_sched)
+            cours3 = st.radio('Pilih Kelas yang Diinginkan:', course3_sched, key='cours3')
     
         with st.expander("Course 4"):
             course4_sched = ['Hari Pertama', 'Hari Kedua', 'Pilih sesuai rekomendasi dari JAKA']
-            cours4 = st.radio('Pilih Kelas yang Diinginkan:', course4_sched)
+            cours4 = st.radio('Pilih Kelas yang Diinginkan:', course4_sched, key='cours4')
     
         with st.expander("Course 5"):
             course5_sched = ['Hari Pertama', 'Hari Kedua', 'Pilih sesuai rekomendasi dari JAKA']
-            cours5 = st.radio('Pilih Kelas yang Diinginkan:', course5_sched)
+            cours5 = st.radio('Pilih Kelas yang Diinginkan:', course5_sched, key='cours5')
     
         with st.expander("Course 6"):
             course6_sched = ['Hari Pertama', 'Hari Kedua', 'Pilih sesuai rekomendasi dari JAKA']
-            cours6 = st.radio('Pilih Kelas yang Diinginkan:', course6_sched)
+            cours6 = st.radio('Pilih Kelas yang Diinginkan:', course6_sched, key='cours6')
     
         with st.expander("Course 7"):
             course7_sched = ['Hari Pertama', 'Hari Kedua', 'Pilih sesuai rekomendasi dari JAKA']
-            cours7 = st.radio('Pilih Kelas yang Diinginkan:', course7_sched)
+            cours7 = st.radio('Pilih Kelas yang Diinginkan:', course7_sched, key='cours7')
     
         with st.expander("Course 8"):
             course8_sched = ['Hari Pertama', 'Hari Kedua', 'Pilih sesuai rekomendasi dari JAKA']
-            cours8 = st.radio('Pilih Kelas yang Diinginkan:', course8_sched)
+            cours8 = st.radio('Pilih Kelas yang Diinginkan:', course8_sched, key='cours8')
     
     with c2:
         st.write("Jadwal yang telah dipilih per matkul")
