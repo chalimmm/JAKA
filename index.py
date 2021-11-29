@@ -1,5 +1,5 @@
 import streamlit as st
-from pages import home, login, error, schedule, chooseSchedule, settings
+from pages import home, login, error, schedule, settings
 
 st.set_page_config(
     page_title="JAKA",
