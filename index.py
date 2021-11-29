@@ -106,9 +106,8 @@ if st.session_state['menu'] == 'Home':
     home.app()
 elif st.session_state['menu'] == 'Schedule':
     st.session_state['actions'] = 0
-    schedule.app()
-elif st.session_state['menu'] == 'Choose Schedule':
-    chooseSchedule.app()
+    if schedule.app():
+       schedule.SelectSchedule()
 elif st.session_state['menu'] == 'Login':
     login.app()
 elif st.session_state['menu'] == 'Logout':
