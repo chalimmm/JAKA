@@ -1,8 +1,9 @@
 import streamlit as st
 import pyrebase
 import hashlib
+import subprocess
 
-def auth(u, p):
+def authFirebase(u, p):
     # Configuration Key
     firebaseConfig = {
         'apiKey': "AIzaSyA-QKAvK7mW2P_Fvzmd__m2jrEXDb2Yg3M",
@@ -23,29 +24,31 @@ def auth(u, p):
     # Database
     db = firebase.database()
     
-    email = "username"
-    email = u + '@ui.ac.id'
-    passwd = "password"
-    passwd = hashlib.sha3_256(p.encode('utf-8')).hexdigest()
-    
-    if st.session_state['isAgree'] and email != "username" and passwd != "password":
-        try:
-            user = auth.sign_in_with_email_and_password(email, passwd) 
-        except:
-            # st.error('EMAIL EXIST!')
-            pass
+    if st.session_state['isAgree']:
+        email = u + '@ui.ac.id'
+        passwd = hashlib.sha256(p.encode('utf-8')).hexdigest()
         try:
             user = auth.create_user_with_email_and_password(email, passwd)
             data = {
-                "username": u
+                email: {
+                    "username": u
+                }
             }
+            
             db.child("users").push(data, user['idToken'])
         except:
-            # st.error('INVALID USERNAME OR PASSWORD!')
             pass
-        st.session_state['logged_in'] = st.session_state['isAgree']
-        st.session_state['menu'] = 'Settings'
-        
+        try:
+            user = auth.sign_in_with_email_and_password(email, passwd)
+            # st.success('Welcome ' + u)
+            st.session_state['logged_in'] = st.session_state['isAgree']
+            with st.spinner('Authenticating...'):
+                subprocess.call(["python", "pages/scraping.py", u, p])
+            st.session_state['menu'] = 'Settings'
+            st.session_state['temp'] = 1
+            st.success('Authenticated')
+        except:
+            st.warning('Authentication Failed')        
 def app():
     st.markdown("<h1 style='text-align: center;'>JAKA</h1>", unsafe_allow_html=True)
     st.markdown("<center><a style='text-align: center;'>Sign in to your SSO-UI account.</a></center>", unsafe_allow_html=True)
@@ -58,22 +61,22 @@ def app():
         p = st.text_input('Password', type='password', max_chars=30)
         with st.expander("Kebijakan Privasi JAKA"):
             st.write("""
-                The chart above shows some numbers I picked for you.
-                I rolled actual dice for these, so they're *guaranteed* to
-                be random.
+                This document will be filled for JAKA Privacy Policy.
             """)
         st.session_state['isAgree'] = st.checkbox('Saya telah membaca dan menyetujui Kebijakan Privasi JAKA')
-        st.button('Login', on_click=auth(u, p))
+        st.button('Login', on_click=authFirebase(u, p))
         
 def reset():
     for key in st.session_state.keys():
         del st.session_state[key]
 
 def out():
-    st.markdown("<h1 style='text-align: center;'>JAKA</h1>", unsafe_allow_html=True)   
+    st.markdown("<h1 style='text-align: center;'>JAKA</h1>", unsafe_allow_html=True)
+    st.markdown("<center><a style='text-align: center;'>Sign in to your SSO-UI account.</a></center>", unsafe_allow_html=True)
+    st.write(" ")
+    st.write(" ")
+    
     left, center, right = st.columns([1, 2, 1])
     with center:
         st.markdown("<center><a style='text-align: center;'>Yakin mau keluar?</a></center>", unsafe_allow_html=True)
-        st.write(" ")
-        st.write(" ")
         st.button('Iya, yakin.', on_click=reset())
