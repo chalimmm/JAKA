@@ -10,7 +10,7 @@ def authFirebase(u, p):
     from firebase_admin import credentials
     from firebase_admin import firestore
 
-    cred = credentials.Certificate("Firebase/serviceAccountKey.json")
+    cred = credentials.Certificate("pages/serviceAccountKey.json")
     firebase_admin.initialize_app(cred)
 
     db = firestore.client()
