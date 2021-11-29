@@ -8,7 +8,6 @@ from firebase_admin import firestore
 cred = credentials.Certificate("pages/serviceAccountKey.json")
 firebase_admin.initialize_app(cred)
 
-
 def authFirebase(u, p):
     with st.spinner('Authenticating...'):
         subprocess.call(["python", "pages/scraping.py", u, p])
