@@ -1,5 +1,5 @@
 import streamlit as st
-import chooseSchedule
+from pages import chooseSchedule
 
 courses = [
     {
