@@ -134,7 +134,7 @@ for element in listElements:
                 'Dosen' : ''
             })
 
-print(json.dumps(courses, indent=4))
+# print(json.dumps(courses, indent=4))
 
 firebaseConfig = {
         'apiKey': "AIzaSyA-QKAvK7mW2P_Fvzmd__m2jrEXDb2Yg3M",
@@ -156,6 +156,8 @@ auth = firebase.auth()
 db = firebase.database()
 
 for course in courses:
+    print(course)
+    print(courses[course])
     db.collection("courses").doc(course).set(courses[course])
 
 # with open("CoursePlan.json", "w") as file: 
