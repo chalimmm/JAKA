@@ -61,7 +61,13 @@ def app():
         p = st.text_input('Password', type='password', max_chars=30)
         with st.expander("Kebijakan Privasi JAKA"):
             st.write("""
-                This document will be filled for JAKA Privacy Policy.
+                Dengan menggunakan JAKA, Anda setuju dengan Kebijakan Privasi kami, yaitu:
+                JAKA menggunakan informasi login berupa username dan kata sandi akun Single-Sign-On Universitas Indonesia untuk masuk ke SIAK-NG.
+                Informasi login tersebut digunakan untuk proses otentikasi, yaitu untuk memastikan bahwa pihak yang sedang melakukan proses tersebut adalah mahasiswa aktif di Universitas Indonesia.
+                Selain untuk proses otentikasi, informasi login tersebut juga digunakan untuk proses pengambilan data dari halaman jadwal yang ada pada SIAK-NG untuk dapat diproses pada situs web JAKA agar mahasiswa dapat menyusun beberapa jadwal dari data yang sudah diambil.
+                JAKA TIDAK menyimpan informasi login mahasiswa dalam bentuk apapun.
+                Perlu diingat bahwa JAKA tidak bertanggung jawab apabila mahasiswa tidak dapat mengambil jadwal sesuai dengan apa yang direkomendasikan oleh JAKA.
+                Perlu diingat bahwa pengguna JAKA harus mempertimbangkan jumlah SKS maksimum yang dapat diambil pada setiap penyusunan jadwal, karena JAKA menyamaratakan jumlah SKS maksimum untuk setiap mahasiswa, yaitu 24 SKS.
             """)
         st.session_state['isAgree'] = st.checkbox('Saya telah membaca dan menyetujui Kebijakan Privasi JAKA')
         st.button('Login', on_click=authFirebase(u, p))
