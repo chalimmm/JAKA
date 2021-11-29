@@ -11,17 +11,6 @@ import sys
 import os
 
 driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
-# op = webdriver.ChromeOptions()
-# op.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
-# op.add_argument("--headless")
-# op.add_argument("--disable-dev-sh-usage")
-# op.add_argument("--no-sandbox")
-# driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=op)
-
-# Now you can start using Selenium
-# driver.get("https://www.google.com")
-# print(driver.page_source)
-# driver.close()
 
 driver.get("https://academic.ui.ac.id/")
 
@@ -134,31 +123,23 @@ for element in listElements:
                 'Dosen' : ''
             })
 
-# print(json.dumps(courses, indent=4))
+### FIRESTORE SECTION ###
 
-firebaseConfig = {
-        'apiKey': "AIzaSyA-QKAvK7mW2P_Fvzmd__m2jrEXDb2Yg3M",
-        'authDomain': "jaka-id.firebaseapp.com",
-        'projectId': "jaka-id",
-        'databaseURL': "https://db-iaicg-default-rtdb.europe-west1.firebasedatabase.app",
-        'projectId': "db-iaicg",
-        'storageBucket': "jaka-id.appspot.com",
-        'messagingSenderId': "1028592956608",
-        'appId': "1:1028592956608:web:4449ccd5451f20b1946925",
-        'measurementId': "G-CG71PW8JT8"
-}
+import firebase_admin
+from firebase_admin import credentials
+from firebase_admin import firestore
 
-# Firebase Authentication
-firebase = pyrebase.initialize_app(firebaseConfig)
-auth = firebase.auth()
+cred = credentials.Certificate("serviceAccountKey.json")
+firebase_admin.initialize_app(cred)
 
-# Database
-db = firebase.database()
+db=firestore.client()
 
 for course in courses:
-    print(course)
-    print(courses[course])
-    db.collection("courses").doc(course).set(courses[course])
-
-# with open("CoursePlan.json", "w") as file: 
-#     file.write(json.dumps(courses, indent=4))
+    getData = db.collection('courses').document(course).get()
+    if getData.exists:
+        getData = getData.to_dict()
+        if courses[course] != getData:
+            print("UPDATE : "+str(course))
+            db.collection('courses').document(course).update(courses[course])
+    else:
+        db.collection('courses').document(course).set(courses[course])
