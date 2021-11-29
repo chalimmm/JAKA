@@ -134,6 +134,8 @@ firebase_admin.initialize_app(cred)
 
 db=firestore.client()
 
+listCourse = []
+
 for course in courses:
     getData = db.collection('courses').document(course).get()
     if getData.exists:
@@ -143,3 +145,7 @@ for course in courses:
             db.collection('courses').document(course).update(courses[course])
     else:
         db.collection('courses').document(course).set(courses[course])
+    listCourse.add(course)
+
+if st.session_state('username') is not 'username':
+    db.collection('users').document(st.session_state('username')).set({ 'listCourse' : listCourse })
