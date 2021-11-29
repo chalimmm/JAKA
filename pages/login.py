@@ -20,9 +20,11 @@ def authFirebase(u, p):
     if users.exists and st.session_state['isAgree']:
         st.session_state['username'] = u
         st.session_state['logged_in'] = True
-        st.success('You are authorized.\nLogging in to JAKA.')
+        st.success('You are authorized.')
+        st.success('Logging in to JAKA')
     else:
-        st.warning('Sorry, you are not authorized.\nPlease check username and password then try again.")        
+        st.warning('Sorry, you are not authorized.")
+        st.warning('Wrong username or password.")        
         
 def app():
     st.markdown("<h1 style='text-align: center;'>JAKA</h1>", unsafe_allow_html=True)
