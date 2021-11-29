@@ -9,35 +9,35 @@ def app():
     c1, c2 = st.columns (3,1)
     
     with c1:
-        st.expander("Course 1"):
+        with st.expander("Course 1"):
             course1_sched = ['Hari Pertama', 'Hari Kedua', 'Pilih sesuai rekomendasi dari JAKA']
             cours1 = st.radio('Pilih Kelas yang Diinginkan:', course1_sched)
     
-        st.expander("Course 2"):
+        with st.expander("Course 2"):
             course2_sched = ['Hari Pertama', 'Hari Kedua', 'Pilih sesuai rekomendasi dari JAKA']
             cours2 = st.radio('Pilih Kelas yang Diinginkan:', course2_sched)
         
-        st.expander("Course 3"):
+        with st.expander("Course 3"):
             course3_sched = ['Hari Pertama', 'Hari Kedua', 'Pilih sesuai rekomendasi dari JAKA']
             cours3 = st.radio('Pilih Kelas yang Diinginkan:', course3_sched)
     
-        st.expander("Course 4"):
+        with st.expander("Course 4"):
             course4_sched = ['Hari Pertama', 'Hari Kedua', 'Pilih sesuai rekomendasi dari JAKA']
             cours4 = st.radio('Pilih Kelas yang Diinginkan:', course4_sched)
     
-        st.expander("Course 5"):
+        with st.expander("Course 5"):
             course5_sched = ['Hari Pertama', 'Hari Kedua', 'Pilih sesuai rekomendasi dari JAKA']
             cours5 = st.radio('Pilih Kelas yang Diinginkan:', course5_sched)
     
-        st.expander("Course 6"):
+        with st.expander("Course 6"):
             course6_sched = ['Hari Pertama', 'Hari Kedua', 'Pilih sesuai rekomendasi dari JAKA']
             cours6 = st.radio('Pilih Kelas yang Diinginkan:', course6_sched)
     
-        st.expander("Course 7"):
+        with st.expander("Course 7"):
             course7_sched = ['Hari Pertama', 'Hari Kedua', 'Pilih sesuai rekomendasi dari JAKA']
             cours7 = st.radio('Pilih Kelas yang Diinginkan:', course7_sched)
     
-        st.expander("Course 8"):
+        with st.expander("Course 8"):
             course8_sched = ['Hari Pertama', 'Hari Kedua', 'Pilih sesuai rekomendasi dari JAKA']
             cours8 = st.radio('Pilih Kelas yang Diinginkan:', course8_sched)
     
