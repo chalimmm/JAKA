@@ -1,4 +1,5 @@
 import streamlit as st
+import chooseSchedule
 
 courses = [
     {
@@ -127,4 +128,4 @@ def SelectSchedule():
 
 def app():
     if FilterCourse():
-        SelectSchedule()
+        chooseSchedule.app()
