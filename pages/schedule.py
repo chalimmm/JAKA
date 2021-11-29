@@ -4,7 +4,7 @@ from firebase_admin import credentials
 from firebase_admin import firestore
 
 def FilterCourse():
-    cred = credentials.Certificate("serviceAccountKey.json")
+    cred = credentials.Certificate("pages/serviceAccountKey.json")
     firebase_admin.initialize_app(cred)
 
     db = firestore.client()
