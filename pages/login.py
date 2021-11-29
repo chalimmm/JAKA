@@ -10,7 +10,7 @@ def authFirebase(u, p):
     from firebase_admin import credentials
     from firebase_admin import firestore
 
-    cred = credentials.Certificate("serviceAccountKey.json")
+    cred = credentials.Certificate("Firebase/serviceAccountKey.json")
     firebase_admin.initialize_app(cred)
 
     db = firestore.client()
@@ -48,7 +48,7 @@ def app():
                     6. Perlu diingat bahwa pengguna JAKA harus mempertimbangkan jumlah SKS maksimum yang dapat diambil pada setiap penyusunan jadwal, karena JAKA menyamaratakan jumlah SKS maksimum untuk setiap mahasiswa, yaitu 24 SKS.\n
                 """)
             st.session_state['isAgree'] = st.checkbox('Saya telah membaca dan menyetujui Kebijakan Privasi JAKA')
-            st.button('Login', on_click=authFirebase(u, p))
+            st.form_submit_button('Login', on_click=authFirebase(u, p))
         
 def reset():
     for key in st.session_state.keys():
