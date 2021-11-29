@@ -4,12 +4,10 @@ import requests
 from streamlit_lottie import st_lottie
 from pages import error
 
-@st.cache(suppress_st_warning=True)
 def load_lottiefile(filepath: str):
     with open(filepath, "r") as f:
         return json.load(f)
 
-@st.cache(suppress_st_warning=True)
 def load_lottieurl(url: str):
     r = requests.get(url)
     if r.status_code != 200:
