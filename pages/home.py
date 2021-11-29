@@ -4,10 +4,12 @@ import requests
 from streamlit_lottie import st_lottie
 from pages import error
 
+@st.cache(persist=True)
 def load_lottiefile(filepath: str):
     with open(filepath, "r") as f:
         return json.load(f)
 
+@st.cache(persist=True)
 def load_lottieurl(url: str):
     r = requests.get(url)
     if r.status_code != 200:
@@ -17,6 +19,7 @@ def load_lottieurl(url: str):
 def startNow():
     st.session_state['menu'] = 'Login'
 
+@st.cache(persist=True)
 def app():
     c1, c2 = st.columns(2)
     
