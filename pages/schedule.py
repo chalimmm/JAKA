@@ -59,7 +59,7 @@ def app():
                 if sks > 24:
                     st.error('Melebihi Maksimum SKS ('+str(sks)+'/24)')
                     return False
-                else st.success('Total SKS ('+str(sks)+'/24)')
+            st.success('Total SKS ('+str(sks)+'/24)')
             st.session_state['menu'] = 'Choose Schedule'
             return len(st.session_state['selectedCourse']) > 0
     
