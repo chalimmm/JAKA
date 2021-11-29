@@ -89,8 +89,8 @@ if 'actions' not in st.session_state:
 if 'username' not in st.session_state:
     st.session_state['username'] = 'username'
 
-# def menuCallback():
-#     st.session_state['menu'] = st.session_state['page']
+if 'selectedCourse' not in st.session_state:
+    st.session_state['selectedCourse'] = []
 
 logo, empty, menu = st.columns((1, 3, 1))
 
