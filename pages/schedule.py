@@ -1,5 +1,4 @@
 import streamlit as st
-from pages import chooseSchedule
 
 courses = [
     {
@@ -128,4 +127,4 @@ def SelectSchedule():
 
 def app():
     if FilterCourse():
-        chooseSchedule.app()
+        st.session_state['menu'] = 'Choose Schedule'
