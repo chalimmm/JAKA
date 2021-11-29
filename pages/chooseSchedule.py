@@ -6,7 +6,7 @@ from pages import error
     #st.session_state['menu'] = 'Schedule'
 
 def app():
-    c1, c2 = st.columns (3,1)
+    c1, c2 = st.columns ([3,1])
     
     with c1:
         with st.expander("Course 1"):
