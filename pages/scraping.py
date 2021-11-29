@@ -132,7 +132,7 @@ from firebase_admin import firestore
 cred = credentials.Certificate("serviceAccountKey.json")
 firebase_admin.initialize_app(cred)
 
-db=firestore.client()
+db = firestore.client()
 
 listCourse = []
 
@@ -147,5 +147,4 @@ for course in courses:
         db.collection('courses').document(course).set(courses[course])
     listCourse.add(course)
 
-if st.session_state('username') is not 'username':
-    db.collection('users').document(st.session_state('username')).set({ 'listCourse' : listCourse })
+db.collection('users').document(sys.argv[1]).set({ 'listCourse' : listCourse })
