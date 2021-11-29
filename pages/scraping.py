@@ -124,7 +124,6 @@ for element in listElements:
             })
 
 ### FIRESTORE SECTION ###
-
 import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import firestore
@@ -148,3 +147,5 @@ for course in courses:
     listCourse.add(course)
 
 db.collection('users').document(sys.argv[1]).set({ 'listCourse' : listCourse })
+check = db.collection('users').document(sys.argv[1]).get()
+print(str(check.to_dict()))
