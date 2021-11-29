@@ -1,4 +1,10 @@
-requests
+setuptools>=59.3.0
 streamlit
+selenium>3.5.0
+webdriver_manager
+html-to-json
+beautifulsoup4==4.10.0
+jsonschema==2.6.0
+requests
 streamlit-lottie==0.0.2
 Pyrebase==3.0.27
