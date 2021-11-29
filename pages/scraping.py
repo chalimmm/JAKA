@@ -133,7 +133,30 @@ for element in listElements:
                 'Ruang' : '', 
                 'Dosen' : ''
             })
+
 print(json.dumps(courses, indent=4))
-        
-with open("CoursePlan.json", "w") as file: 
-    file.write(json.dumps(courses, indent=4))
+
+firebaseConfig = {
+        'apiKey': "AIzaSyA-QKAvK7mW2P_Fvzmd__m2jrEXDb2Yg3M",
+        'authDomain': "jaka-id.firebaseapp.com",
+        'projectId': "jaka-id",
+        'databaseURL': "https://db-iaicg-default-rtdb.europe-west1.firebasedatabase.app",
+        'projectId': "db-iaicg",
+        'storageBucket': "jaka-id.appspot.com",
+        'messagingSenderId': "1028592956608",
+        'appId': "1:1028592956608:web:4449ccd5451f20b1946925",
+        'measurementId': "G-CG71PW8JT8"
+}
+
+# Firebase Authentication
+firebase = pyrebase.initialize_app(firebaseConfig)
+auth = firebase.auth()
+
+# Database
+db = firebase.database()
+
+for course in courses:
+    db.collection("courses").doc(course).set(courses[course])
+
+# with open("CoursePlan.json", "w") as file: 
+#     file.write(json.dumps(courses, indent=4))
