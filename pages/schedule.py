@@ -48,7 +48,9 @@ def SelectSchedule():
             getData = getData.to_dict()
             with st.expander(course):
                 courseDetails = getData['Kelas']
-                selected = st.selectbox('Pilih Kelas', options=courseDetails, key=course[:10])
+                for kelas in courseDetails:
+                    selected = st.radio('Pilih Kelas', options=courseDetails, key=kelas['Nama'])
+                    st.write(kelas)
                 
     with c2:
         st.subheader("Jadwal yang telah dipilih per matkul")
