@@ -25,7 +25,7 @@ def app():
     
     with c1:
         for course in courses:
-            listCourse.append(course+" - "+course['Nama']) 
+            listCourse.append(course+" - "+courses[course]['Nama']) 
         st.subheader('Select Course(s)')
         st.session_state['selectedCourse'] = st.multiselect('', options=listCourse)
         
