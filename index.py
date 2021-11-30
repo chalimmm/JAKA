@@ -1,5 +1,6 @@
+from requests.sessions import session
 import streamlit as st
-from pages import home, login, error, schedule, settings
+from pages import home, login, error, schedule, dashboard
 
 st.set_page_config(
     page_title="JAKA",
@@ -14,12 +15,7 @@ hide_menu_style = """
 """
 
 st.markdown(hide_menu_style, unsafe_allow_html=True)
-page_list = [
-    'Schedule'
-    ,'Settings'
-    ,'Logout'
-    # ,'View Plan'    
-]
+
 st.markdown("""
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -74,17 +70,11 @@ a { font-family: 'Montserrat';font-size: 25px; }
 if 'menu' not in st.session_state:
     st.session_state['menu'] = 'Home'
 
-if 'isLogin' not in st.session_state:
-    st.session_state['isLogin'] = False
+if 'auth' not in st.session_state:
+    st.session_state['auth'] = False
     
-if 'isAgree' not in st.session_state:
-    st.session_state['isAgree'] = False
-
-if 'logged_in' not in st.session_state:
-    st.session_state['logged_in'] = False
-
-if 'actions' not in st.session_state:
-    st.session_state['actions'] = 1
+if 'courses' not in st.session_state:
+    st.session_state['courses'] = {}
 
 if 'username' not in st.session_state:
     st.session_state['username'] = 'username'
@@ -100,23 +90,29 @@ with logo: # Kolom kiri untuk logo
     <img src="https://i.ibb.co/yP2wjhW/jaka-02.png" alt="Logo JAKA" style="width:50px;height:50px;">
     </a>
     ''', unsafe_allow_html=True)
-with menu: # Dropdown menu
-    navBar = st.container()
-    if st.session_state['logged_in']:
-        st.session_state['menu']=navBar.selectbox(label='Go To',options=page_list,index=st.session_state['actions'])
 
-if st.session_state['menu'] == 'Home':
-    home.app()
-elif st.session_state['menu'] == 'Schedule':
-    st.session_state['actions'] = 0
-    if schedule.app():
-       schedule.SelectSchedule()
-elif st.session_state['menu'] == 'Login':
-    login.app()
-elif st.session_state['menu'] == 'Logout':
-    login.out()
-elif st.session_state['menu'] == 'Settings':
-    st.session_state['actions'] = 1
-    settings.app()
+# st.info(st.session_state['auth'])
+# st.info(st.session_state['menu'])
+
+if st.session_state['auth']:
+    if st.session_state['menu'] == 'Dashboard':
+        dashboard.app()
+    elif st.session_state['menu'] == 'Create Schedule':
+        schedule.FilterCourse()
+    elif st.session_state['menu'] == 'Modify Schedule':
+        schedule.FilterCourse()
+    elif st.session_state['menu'] == 'Delete Schedule':
+        schedule.FilterCourse()
+    elif st.session_state['menu'] == 'Choose Schedule':
+        schedule.ChooseSchedule()
+    elif st.session_state['menu'] == 'Logout':
+        login.out()
+    else:
+        error.app(307)
 else:
-    error.app(307)
+    if st.session_state['menu'] == 'Home':
+        home.app()
+    elif st.session_state['menu'] == 'Login':
+        login.app()
+    else:
+        error.app(307)
