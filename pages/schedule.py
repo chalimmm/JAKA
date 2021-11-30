@@ -17,7 +17,7 @@ def app():
         getData = db.collection('courses').document(course).get()
         if getData.exists:
             getData = getData.to_dict()
-            courses.set({course : getData})
+            courses[course] = getData
     
     listCourse.clear()
     
