@@ -47,10 +47,9 @@ def SelectSchedule():
             getData = db.collection('courses').document(course[:10]).get()
             getData = getData.to_dict()
             with st.expander(course):
-                courseDetails = getData['Kelas']
-                for kelas in courseDetails:
-                    selected = st.radio('Pilih Kelas', options=courseDetails, key=kelas['Nama'])
-                    st.write(kelas)
+                courseDetails = ['Rekomendasi JAKA']
+                courseDetails.append(getData['Kelas'])
+                selected = st.radio('Pilih Kelas', options=courseDetails, key=course[:10].strip())
                 
     with c2:
         st.subheader("Jadwal yang telah dipilih per matkul")
