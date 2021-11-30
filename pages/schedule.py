@@ -71,7 +71,8 @@ def SelectSchedule():
     db = firestore.client()
     with c1:
         for course in st.session_state['selectedCourse']:
-            getData = db.collection('courses').document(course[:11]).get()
+            st.info(course[:10])
+            getData = db.collection('courses').document(course[:10]).get()
             getData = getData.to_dict()
             with st.expander(course):
                 courseDetails = getData['Kelas']
