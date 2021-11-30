@@ -1,57 +1,94 @@
 import streamlit as st
-import firebase_admin
-from firebase_admin import credentials
-from firebase_admin import firestore
 
-def app():
-    db = firestore.client()
-    
-    listCourse = db.collection('users').document(st.session_state['username']).get()
-    listCourse = listCourse.to_dict()
-    listCourse = listCourse['listCourse']
-    
-    courses = {}
+def goto(page):
+    st.session_state['menu'] = page
+
+def checkSKS():
+    sks = 0
+    for course in st.session_state['selectedCourse']:
+        sks += int(course[-14:-13])
+        print(sks)
+        if sks > 24:
+            st.error('Melebihi Maksimum SKS ('+str(sks)+'/24)')
+            return False
+    st.success('Total SKS ('+str(sks)+'/24)')
+    return True
+
+def FilterCourse():
+    courses = st.session_state['courses']
     st.session_state['selectedCourse'] = []
     
-    for course in listCourse:
-        getData = db.collection('courses').document(course).get()
-        if getData.exists:
-            getData = getData.to_dict()
-            courses[course] = getData
+    filter, confirm = st.columns((3, 1))
     
-    listCourse.clear()
+    listCourse = []
     
-    with st.form('selectCourse'):
+    with filter:
         for course in courses:
             listCourse.append(course+" - "+courses[course]['Nama']) 
-        st.subheader('Select Course(s)')
-        st.session_state['selectedCourse'] = st.multiselect('', options=listCourse)
         
-        if st.form_submit_button('Create Plan'):
-            sks = 0
-            for course in st.session_state['selectedCourse']:
-                sks += int(course[-14:-13])
-                print(sks)
-                if sks > 24:
-                    st.error('Melebihi Maksimum SKS ('+str(sks)+'/24)')
-                    return False
-            st.success('Total SKS ('+str(sks)+'/24)')
-            st.session_state['menu'] = 'Choose Schedule'
-            return len(st.session_state['selectedCourse']) > 0
+        st.header('Select Course(s)')
+        st.session_state['selectedCourse'] = st.multiselect(' ', options=listCourse)
+        
+    with confirm:
+        for i in range(5):
+            st.subheader(" ")
+        if len(st.session_state['selectedCourse']) > 0 and checkSKS():
+            if st.button('Continue'):
+                goto('Choose Schedule')
+        else:
+            st.markdown("""
+            <link rel="preconnect" href="https://fonts.googleapis.com">
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+            <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
+            <style>
+            div.disabledButton > button {
+                background-color: #f72585;
+                border-radius: 50px;
+                display: inline-block;
+                border: none;
+                transition: all 0.4s ease 0s;
+                color: white;
+                padding: 15px 32px;
+                text-align: center;
+                text-transform: uppercase;
+                text-decoration: none;
+                display: inline-block;
+                font-family: 'Montserrat';
+                font-weight: 700;
+                margin: 4px 2px;
+                cursor: not-allowed;
+                width: 100%;
+            }
+            </style>""", unsafe_allow_html=True)
+            st.markdown('''
+                <div class='disabledButton'>
+                <button disabled>
+                Continue
+                </button>
+                </div>
+            ''', unsafe_allow_html=True)
     
-def SelectSchedule():
-    c1, c2 = st.columns ([3,1])
-    db = firestore.client()
-    with c1:
+def ChooseSchedule():
+    control, space, view = st.columns ([4,1,2])
+    
+    with control:
+        st.header('Choose Class')
+        # st.write(st.session_state['courses'])
         for course in st.session_state['selectedCourse']:
-            getData = db.collection('courses').document(course[:10]).get()
-            getData = getData.to_dict()
+            data = st.session_state['courses'][course[:10].strip()]
             with st.expander(course):
-                courseDetails = ['Rekomendasi JAKA']
-                courseDetails.append(getData['Kelas'])
-                selected = st.radio('Pilih Kelas', options=courseDetails, key=course[:10].strip())
+                selected = st.container()
+                if len(data['Kelas']) > 1:
+                    option = ['Rekomendasi JAKA']
+                else:
+                    option = []
+                for kelas in data['Kelas']:
+                    temp = kelas['Nama']
+                    option.append(temp)
+                    st.write(kelas)
+                selected.radio('Pilih Kelas', options=option, key=course)
                 
-    with c2:
-        st.subheader("Jadwal yang telah dipilih per matkul")
+    with view:
+        st.header("Overview")
         st.write("")
         st.write("")
