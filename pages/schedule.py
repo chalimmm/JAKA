@@ -7,6 +7,8 @@ def app():
     db = firestore.client()
     
     listCourse = db.collection('users').document(st.session_state['username']).get()
+    listCourse = listCourse.to_dict()
+    listCourse = listCourse['listCourse']
     
     courses = {}
     st.session_state['selectedCourse'] = []
@@ -16,11 +18,12 @@ def app():
         if getData.exists:
             getData = getData.to_dict()
             courses[course].set(getData)
-            
+    
+    listCourse.clear()
+    
     c1, c2 = st.columns((3, 1))
     
     with c1:
-        listCourse = []
         for course in courses:
             listCourse.append(course+" - "+course['Nama']) 
         st.subheader('Select Course(s)')
