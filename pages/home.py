@@ -14,8 +14,8 @@ def load_lottieurl(url: str):
         return None
     return r.json()
 
-def startNow():
-    st.session_state['menu'] = 'Login'
+def goto(page):
+    st.session_state['menu'] = page
 
 def app():
     c1, c2 = st.columns(2)
@@ -54,4 +54,4 @@ def app():
         for i in range(2):
             body.write(' ')
         
-        st.button("Start Now!", key='start-now', on_click=startNow())
+        st.button("Start Now!", key='start-now', on_click=goto, args=['Login'])

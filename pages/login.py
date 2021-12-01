@@ -4,6 +4,9 @@ from pages import scraping
 def goto(page):
     st.session_state['menu'] = page
 
+def relogin():
+    st.session_state['auth'] = False
+
 def app():
     st.markdown("""
     <h1 style='text-align: center;'>
@@ -23,8 +26,10 @@ def app():
 
     empty, center, empty = st.columns([1, 2, 1])
     with center:
-        u = st.text_input('Username', max_chars=30)
-        p = st.text_input('Password', type='password', max_chars=30)
+        status = st.container()
+        
+        u = st.text_input('Username', help='Masukkan username akun SSO UI', max_chars=30, on_change=relogin, args=None)
+        p = st.text_input('Password', help='Masukkan password akun SSO UI', type='password', max_chars=30, on_change=relogin, args=None)
         with st.expander("Kebijakan Privasi JAKA"):
             st.subheader("""
                 Dengan menggunakan JAKA, Anda setuju dengan Kebijakan Privasi kami, yaitu:\n
@@ -37,34 +42,38 @@ def app():
             """)
         isAgree = st.checkbox('Saya telah membaca dan menyetujui Kebijakan Privasi JAKA')
         
-        status = st.container()
+        loginBtn = st.container()
         
-        if isAgree and not st.session_state['auth']:
-            try:
-                st.session_state['auth'] = scraping.app(u, p)
-                if st.session_state['auth']:
-                    status.success('Authenticated')
-                else:
-                    status.error('Wrong username or password')
-            except:
-                status.error('Wrong username or password')
-                pass
+        if isAgree:
+            if u and p and not st.session_state['auth']:
+                try:
+                    st.session_state['auth'] = scraping.app(u, p)
+                    if st.session_state['auth']:
+                        status.success('Authenticated')
+                    else:
+                        status.error('Wrong username or password')
+                except:
+                    status.error('Authentication Failed')
+                    pass
+            elif not st.session_state['auth']:
+                status.warning('Username dan Password tidak boleh kosong')
         
         if st.session_state['auth'] and isAgree:
-            st.button('Login', on_click=goto('Dashboard'))
+            loginBtn.write(" ")
+            loginBtn.button('Login', on_click=goto, args=['Dashboard'])
         else:
-            st.markdown("""
+            loginBtn.markdown("""
             <link rel="preconnect" href="https://fonts.googleapis.com">
             <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
             <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
             <style>
             div.disabledButton > button {
-                background-color: #f72585;
+                background-color: #3a0ca3;
                 border-radius: 50px;
                 display: inline-block;
                 border: none;
                 transition: all 0.4s ease 0s;
-                color: white;
+                color: #ffffff;
                 padding: 15px 32px;
                 text-align: center;
                 text-transform: uppercase;
@@ -77,14 +86,14 @@ def app():
                 width: 100%;
             }
             </style>""", unsafe_allow_html=True)
-            st.markdown('''
+            loginBtn.markdown('''
                 <div class='disabledButton'>
                 <button disabled>
                 Login
                 </button>
                 </div>
             ''', unsafe_allow_html=True)
-        
+
 def reset():
     for key in st.session_state.keys():
         del st.session_state[key]
@@ -98,4 +107,4 @@ def out():
     left, center, right = st.columns([1, 2, 1])
     with center:
         st.markdown("<center><a style='text-align: center;'>Yakin mau keluar?</a></center>", unsafe_allow_html=True)
-        st.button('Iya, yakin.', on_click=reset())
+        st.button('Iya, yakin.', on_click=reset, args=None)

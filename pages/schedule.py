@@ -3,38 +3,34 @@ import streamlit as st
 def goto(page):
     st.session_state['menu'] = page
 
-def checkSKS():
-    sks = 0
-    for course in st.session_state['selectedCourse']:
-        sks += int(course[-14:-13])
-        print(sks)
-        if sks > 24:
-            st.error('Melebihi Maksimum SKS ('+str(sks)+'/24)')
-            return False
-    st.success('Total SKS ('+str(sks)+'/24)')
-    return True
-
-def FilterCourse():
+def Course():
     courses = st.session_state['courses']
     st.session_state['selectedCourse'] = []
     
-    filter, confirm = st.columns((3, 1))
+    headerTxt, continueBtn = st.columns((4, 1))
+    headerTxt.header('Select Course(s)')
+    
+    filter, status = st.columns((4, 1))
     
     listCourse = []
     
     with filter:
         for course in courses:
             listCourse.append(course+" - "+courses[course]['Nama']) 
+        st.session_state['selectedCourse'] = st.multiselect('Type or scroll to search', options=listCourse)
+    
+    for i in range(5):
+        st.write(" ")
         
-        st.header('Select Course(s)')
-        st.session_state['selectedCourse'] = st.multiselect(' ', options=listCourse)
-        
-    with confirm:
-        for i in range(5):
-            st.subheader(" ")
-        if len(st.session_state['selectedCourse']) > 0 and checkSKS():
-            if st.button('Continue'):
-                goto('Choose Schedule')
+    sks = 0
+    for course in st.session_state['selectedCourse']:
+        sks += int(course[-14:-13])
+    status.metric(label="SKS", value=str(sks), delta=str(24 - sks))
+    
+    with continueBtn:        
+        if sks in range(1, 25):
+            st.write(" ")
+            st.button('Continue', on_click=goto, args=['Choose Schedule'])
         else:
             st.markdown("""
             <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -68,11 +64,10 @@ def FilterCourse():
                 </div>
             ''', unsafe_allow_html=True)
     
-def ChooseSchedule():
+def Class():
+    st.header('Select Class')
     control, space, view = st.columns ([4,1,2])
-    
     with control:
-        st.header('Choose Class')
         # st.write(st.session_state['courses'])
         for course in st.session_state['selectedCourse']:
             data = st.session_state['courses'][course[:10].strip()]

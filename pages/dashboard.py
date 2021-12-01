@@ -38,7 +38,7 @@ def app():
             width=None,
             key="lottie-create-schedule",
         )
-        st.button("Create Schedule", on_click=goto('Create Schedule'))
+        st.button('Create Schedule', on_click=goto, args=['Create Schedule'])
         
     with c2:
         lottie_url = "https://assets5.lottiefiles.com/packages/lf20_7k4anl64.json"
@@ -55,7 +55,7 @@ def app():
             width=None,
             key="lottie-modify-schedule",
         )
-        st.button('Modify Schedule', on_click=goto('Modify Schedule'))
+        st.button('Modify Schedule', on_click=goto, args=['Modify Schedule'])
         
     with c3:
         lottie_url = "https://assets10.lottiefiles.com/packages/lf20_v6sxmrkx.json"
@@ -72,4 +72,4 @@ def app():
             width=None,
             key="lottie-delete-schedule",
         )
-        st.button('Delete Schedule', on_click=goto('Delete Schedule'))
+        st.button('Delete Schedule', on_click=goto, args=['Delete Schedule'])

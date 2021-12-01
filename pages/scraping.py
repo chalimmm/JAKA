@@ -1,44 +1,44 @@
 from selenium import webdriver
-from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
-from webdriver_manager.chrome import ChromeDriverManager
 from bs4 import BeautifulSoup
 import streamlit as st
 import re
 
 def app(u, p):
-    loading = st.progress(0)
-    with st.spinner('Authenticating...'):
-        driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
-        
-        driver.get("https://academic.ui.ac.id/")
-        
-        loading.progress(25)
+    placeholder = st.empty()
+    placeholder.write("---")
+    loading = placeholder.progress(0)
+    with placeholder.container():
+        PATH = "C:\Program Files (x86)\chromedriver.exe"
+        driver = webdriver.Chrome(PATH)
+
+        driver.get("https://academic.ui.ac.id/")  
+        loading.progress(10)
         
         username = driver.find_element(By.NAME, "u")
-        # username.send_keys(sys.argv[1])
         username.send_keys(u)
-        
         password = driver.find_element(By.NAME, "p")
-        # password.send_keys(sys.argv[2])
         password.send_keys(p)
+        loading.progress(20)
 
         login = driver.find_element(By.CSS_SELECTOR, "input[value='Login']")
         login.click()
+        loading.progress(30)
         
-        loading.progress(50)
+        element = driver.current_url
+        print(element)
         
-        driver.get("https://academic.ui.ac.id/main/Schedule/Index")
-
-        element = driver.find_element(By.CSS_SELECTOR, "#ti_h")
+        loading.progress(40)
         
-        if element.text != 'Jadwal Kelas Mata Kuliah':
+        if element == 'https://academic.ui.ac.id/main/Authentication/Index':
             driver.close()
+            placeholder.empty()
             return False
         
+        driver.get("https://academic.ui.ac.id/main/Schedule/Index")
         page_source = driver.page_source
-        
         driver.close()
+        loading.progress(50)
         
         cuts = []
                 
@@ -52,7 +52,7 @@ def app(u, p):
             if iter >= len(cuts):
                 break
         
-        loading.progress(75)
+        loading.progress(60)
         
         filtered_page = ""
         for i in range(len(cuts)):
@@ -62,6 +62,8 @@ def app(u, p):
 
         soup = BeautifulSoup(filtered_page, 'html.parser')
 
+        loading.progress(70)
+        
         courses = soup.find_all("tr")
 
         elements = ""
@@ -78,10 +80,10 @@ def app(u, p):
                     elements += element.text + "\n"
                 elements += "--------------"
 
+        loading.progress(80)
+
         listElements = elements.split("--------------")
-
         courses = {}
-
         temp = ""
 
         for element in listElements:
@@ -131,5 +133,7 @@ def app(u, p):
                     })
         loading.progress(100)
         st.session_state['courses'] = courses
+        
+        placeholder.empty()
         
         return True
