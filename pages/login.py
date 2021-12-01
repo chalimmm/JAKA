@@ -16,9 +16,9 @@ def app():
     
     st.markdown("""
     <center>
-        <a style='text-align: center;'>
+        <p style='text-align: center;'>
             Login using your SSO-UI account.
-        </a>
+        </p>
     </center>
     <br>
     <br>
@@ -31,8 +31,8 @@ def app():
         u = st.text_input('Username', help='Masukkan username akun SSO UI', max_chars=30, on_change=relogin, args=None)
         p = st.text_input('Password', help='Masukkan password akun SSO UI', type='password', max_chars=30, on_change=relogin, args=None)
         with st.expander("Kebijakan Privasi JAKA"):
-            st.subheader("""
-                Dengan menggunakan JAKA, Anda setuju dengan Kebijakan Privasi kami, yaitu:\n
+            st.write("""
+                ***Dengan menggunakan JAKA, Anda setuju dengan Kebijakan Privasi kami, yaitu:***\n
                 1. JAKA menggunakan informasi login berupa username dan kata sandi akun Single-Sign-On Universitas Indonesia untuk masuk ke SIAK-NG.\n
                 2. Informasi login tersebut digunakan untuk proses otentikasi, yaitu untuk memastikan bahwa pihak yang sedang melakukan proses tersebut adalah mahasiswa aktif di Universitas Indonesia.\n
                 3. Selain untuk proses otentikasi, informasi login tersebut juga digunakan untuk proses pengambilan data dari halaman jadwal yang ada pada SIAK-NG untuk dapat diproses pada situs web JAKA agar mahasiswa dapat menyusun beberapa jadwal dari data yang sudah diambil.\n
@@ -49,6 +49,7 @@ def app():
                 try:
                     st.session_state['auth'] = scraping.app(u, p)
                     if st.session_state['auth']:
+                        st.session_state['username'] = u
                         status.success('Authenticated')
                     else:
                         status.error('Wrong username or password')

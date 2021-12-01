@@ -42,14 +42,14 @@ def app():
             body.write(' ')
         body.title("JAKA")
         body.markdown("""
-        <a>Jadwal Aman, Kuliah Aman.</a>
+        <p class='info'>Jadwal Aman, Kuliah Aman.</p>
         <hr style="height:4px;border:none;
         color:#f72585;background-color:#f72585">
         """, unsafe_allow_html=True)
         
         about_text = """
-        <a>JAKA is built to make Universitas Indonesia student's course scheduling
-        easier, faster, seamless, and more intuitive than ever.</a>"""
+        <p class='info'>JAKA is built to make Universitas Indonesia student's course scheduling
+        easier, faster, seamless, and more intuitive than ever.</p>"""
         body.markdown(about_text, unsafe_allow_html=True)
         for i in range(2):
             body.write(' ')
