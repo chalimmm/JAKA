@@ -13,7 +13,6 @@ hide_menu_style = """
     footer {visibility: hidden;}
     </style>
 """
-
 st.markdown(hide_menu_style, unsafe_allow_html=True)
 
 st.markdown("""
@@ -50,10 +49,7 @@ st.markdown("""
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
 <style>
-h1 {
-font-family: 'Montserrat';font-size: 55px;
-font-weight: 900;   
-}
+    h1 { font-family: 'Montserrat';font-size: 55px; font-weight: 900; }
 </style>""", unsafe_allow_html=True)
 
 st.markdown("""
@@ -61,8 +57,8 @@ st.markdown("""
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
 <style>
-p { font-family: 'Montserrat';font-size: 12px; }
-a { font-family: 'Montserrat';font-size: 25px; }
+    p { font-family: 'Montserrat';font-size: 12px; }
+    a { font-family: 'Montserrat';font-size: 25px; }
 </style>""", unsafe_allow_html=True) 
 
 # Init Session State
@@ -85,11 +81,17 @@ if 'selectedCourse' not in st.session_state:
 logo, empty, menu = st.columns((1, 3, 1))
 
 with logo: # Kolom kiri untuk logo
+    if st.session_state.auth:
+        reload = 'false'
+    else:
+        reload = 'true'
     st.markdown('''
-    <a href="javascript:location.reload(true)">
-    <img src="https://i.ibb.co/yP2wjhW/jaka-02.png" alt="Logo JAKA" style="width:50px;height:50px;">
+    <a href="javascript:location.reload('''+reload+''')">
+        <img src="https://i.ibb.co/yP2wjhW/jaka-02.png" alt="Logo JAKA" style="width:50px;height:50px;"/>
     </a>
     ''', unsafe_allow_html=True)
+
+empty.info(st.session_state['menu'])
 
 # st.info(st.session_state['auth'])
 # st.info(st.session_state['menu'])
@@ -98,17 +100,17 @@ if st.session_state['auth']:
     if st.session_state['menu'] == 'Dashboard':
         dashboard.app()
     elif st.session_state['menu'] == 'Create Schedule':
-        schedule.FilterCourse()
+        schedule.Course()
     elif st.session_state['menu'] == 'Modify Schedule':
-        schedule.FilterCourse()
+        schedule.Course()
     elif st.session_state['menu'] == 'Delete Schedule':
-        schedule.FilterCourse()
+        schedule.Course()
     elif st.session_state['menu'] == 'Choose Schedule':
-        schedule.ChooseSchedule()
+        schedule.Class()
     elif st.session_state['menu'] == 'Logout':
         login.out()
     else:
-        error.app(307)
+        login.app()
 else:
     if st.session_state['menu'] == 'Home':
         home.app()
