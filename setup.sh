@@ -1,5 +1,5 @@
 mkdir -p ~/.streamlit
-echo '
+echo "
 [global]
 
 # By default, Streamlit checks if the Python watchdog module is available and, if not, prints a warning asking for you to install it. The watchdog module is not required, but highly recommended. It improves Streamlit's ability to detect changes to files in your filesystem.
@@ -7,26 +7,24 @@ echo '
 # Default: false
 disableWatchdogWarning = false
 
-# If True, will show a warning when you run a Streamlit-enabled script via "python my_script.py".
+# If True, will show a warning when you run a Streamlit-enabled script via 'python my_script.py'.
 # Default: true
 showWarningOnDirectExecution = true
 
 # DataFrame serialization.
 # Acceptable values: - 'legacy': Serialize DataFrames using Streamlit's custom format. Slow but battle-tested. - 'arrow': Serialize DataFrames using Apache Arrow. Much faster and versatile.
-# Default: "arrow"
-dataFrameSerialization = "arrow"
-
+# Default: 'arrow'
+dataFrameSerialization = 'arrow'
 
 [logger]
 
 # Level of logging: 'error', 'warning', 'info', or 'debug'.
 # Default: 'info'
-level = "info"
+level = 'info'
 
 # String format for logging messages. If logger.datetimeFormat is set, logger messages will default to `%(asctime)s.%(msecs)03d %(message)s`. See [Python's documentation](https://docs.python.org/2.6/library/logging.html#formatter-objects) for available attributes.
 # Default: None
-messageFormat = "%(asctime)s %(message)s"
-
+messageFormat = '%(asctime)s %(message)s'
 
 [client]
 
@@ -70,13 +68,13 @@ postScriptGC = false
 folderWatchBlacklist = []
 
 # Change the type of file watcher used by Streamlit, or turn it off completely.
-# Allowed values: * "auto" : Streamlit will attempt to use the watchdog module, and falls back to polling if watchdog is not available. * "watchdog" : Force Streamlit to use the watchdog module. * "poll" : Force Streamlit to always use polling. * "none" : Streamlit will not watch files.
-# Default: "auto"
-fileWatcherType = "none"
+# Allowed values: * 'auto' : Streamlit will attempt to use the watchdog module, and falls back to polling if watchdog is not available. * 'watchdog' : Force Streamlit to use the watchdog module. * 'poll' : Force Streamlit to always use polling. * 'none' : Streamlit will not watch files.
+# Default: 'auto'
+fileWatcherType = 'none'
 
 # Symmetric key used to produce signed cookies. If deploying on multiple replicas, this should be set to the same value across all replicas to ensure they all share the same secret.
 # Default: randomly generated secret key.
-cookieSecret = "8f977825ef28021786956c69468624eb33cf6c6784f07d5eda52d0605de1eb96"
+cookieSecret = '8f977825ef28021786956c69468624eb33cf6c6784f07d5eda52d0605de1eb96'
 
 # If false, will attempt to open a browser window on start.
 # Default: false unless (1) we are on a Linux box where DISPLAY is unset, or (2) server.liveSave is set.
@@ -92,8 +90,7 @@ runOnSave = false
 
 # The port where the server will listen for browser connections.
 # Default: 8501
-# The value below was set in C:\Users\ASUS\.streamlit\config.toml
-port = 8501
+port = $PORT
 
 # The base path for the URL where Streamlit should be served from.
 # Default: ""
@@ -122,7 +119,7 @@ enableWebsocketCompression = true
 # Internet address where users should point their browsers in order to connect to the app. Can be IP address or DNS name and path.
 # This is used to: - Set the correct URL for CORS and XSRF protection purposes. - Show the URL on the terminal - Open the browser - Tell the browser where to connect to the server when in liveSave mode.
 # Default: 'localhost'
-serverAddress = "localhost"
+serverAddress = 'localhost'
 
 # Whether to send usage statistics to Streamlit.
 # Default: true
@@ -136,9 +133,8 @@ serverPort = $PORT
 [mapbox]
 
 # Configure Streamlit to use a custom Mapbox token for elements like st.pydeck_chart and st.map. To get a token for yourself, create an account at https://mapbox.com. It's free (for moderate usage levels)!
-# Default: ""
-token = ""
-
+# Default: ''
+token = ''
 
 [deprecation]
 
@@ -153,24 +149,24 @@ showPyplotGlobalUse = false
 [theme]
 
 # The preset Streamlit theme that your custom theme inherits from. One of "light" or "dark".
-base = "light"
+base = 'light'
 
 # Primary accent color for interactive elements.
-primaryColor = "#f72585"
+primaryColor = '#f72585'
 
 # Background color for the main content area.
-backgroundColor = "#f8f8f8"
+backgroundColor = '#f8f8f8'
 
 # Background color used for the sidebar and most interactive widgets.
-backgroundColor = "#ffffff"
+backgroundColor = '#ffffff'
 
 # Color used for almost all text.
-textColor = "#3a0ca3"
+textColor = '#3a0ca3'
 
-# Font family for all text in the app, except code blocks. One of "sans serif", "serif", or "monospace".
-font = "sans serif"
+# Font family for all text in the app, except code blocks. One of 'sans serif', 'serif', or 'monospace'.
+font = 'sans serif'
 
-' > ~/.streamlit/config.toml
+" > ~/.streamlit/config.toml
 
 mkdir -p ~/firebase
 echo '
