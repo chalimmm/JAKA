@@ -1,5 +1,7 @@
 from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
+from webdriver_manager.chrome import ChromeDriverManager
 from bs4 import BeautifulSoup
 import streamlit as st
 import re
@@ -9,8 +11,7 @@ def app(u, p):
     placeholder.write("---")
     loading = placeholder.progress(0)
     with placeholder.container():
-        PATH = "C:\Program Files (x86)\chromedriver.exe"
-        driver = webdriver.Chrome(PATH)
+        driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
 
         driver.get("https://academic.ui.ac.id/")  
         loading.progress(10)
