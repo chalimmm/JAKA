@@ -24,11 +24,10 @@ def app():
     c1, a1, c2, a2, c3 = st.columns((2, 1, 2, 1, 2))
     
     with c1:
-        lottie_url = "assets/create.json"
-        lottie_json = load_lottiefile(lottie_url)
+        lottie_file = load_lottiefile("assets/create.json")
 
         st_lottie(
-            lottie_json,
+            lottie_file,
             speed=1,
             reverse=False,
             loop=True,
@@ -41,11 +40,10 @@ def app():
         st.button('Create Schedule', on_click=goto, args=['Create Schedule'])
         
     with c2:
-        lottie_url = "assets/modify.json"
-        lottie_json = load_lottiefile(lottie_url)
+        lottie_file = load_lottiefile("assets/modify.json")
 
         st_lottie(
-            lottie_json,
+            lottie_file,
             speed=1,
             reverse=False,
             loop=True,
@@ -58,11 +56,10 @@ def app():
         st.button('Modify Schedule', on_click=goto, args=['Modify Schedule'])
         
     with c3:
-        lottie_url = "assets/delete.json"
-        lottie_json = load_lottiefile(lottie_url)
+        lottie_file = load_lottiefile("assets/delete.json")
 
         st_lottie(
-            lottie_json,
+            lottie_file,
             speed=1,
             reverse=False,
             loop=True,
