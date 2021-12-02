@@ -25,7 +25,7 @@ def app():
     
     with c1:
         lottie_url = "assets/create.json"
-        lottie_json = load_lottieurl(lottie_url)
+        lottie_json = load_lottiefile(lottie_url)
 
         st_lottie(
             lottie_json,
@@ -42,7 +42,7 @@ def app():
         
     with c2:
         lottie_url = "assets/modify.json"
-        lottie_json = load_lottieurl(lottie_url)
+        lottie_json = load_lottiefile(lottie_url)
 
         st_lottie(
             lottie_json,
@@ -59,7 +59,7 @@ def app():
         
     with c3:
         lottie_url = "assets/delete.json"
-        lottie_json = load_lottieurl(lottie_url)
+        lottie_json = load_lottiefile(lottie_url)
 
         st_lottie(
             lottie_json,
