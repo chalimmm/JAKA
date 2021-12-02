@@ -1,5 +1,4 @@
-### IMPORT LIBRARIES AND PAGES###
-from requests.sessions import session
+### IMPORT LIBRARIES AND PAGES ###
 import streamlit as st
 from pages import home, login, error, schedule, dashboard
 
@@ -12,9 +11,9 @@ if 'selectedCourse' not in st.session_state : st.session_state['selectedCourse']
 
 ### PAGE STYLING ###
 st.set_page_config(
-        page_title="JAKA",
-        layout="wide",
-        page_icon="https://i.ibb.co/yP2wjhW/jaka-02.png",
+        page_title = "JAKA",
+        layout = "wide",
+        page_icon = "https://i.ibb.co/yP2wjhW/jaka-02.png",
         initial_sidebar_state = "collapsed"
     )
 css_style = """
@@ -70,6 +69,7 @@ css_style = """
         }
         h1 { font-family: 'Montserrat';font-size: 55px; font-weight: 900; }
         h2,h3,h4,h5 { font-family: 'Montserrat'; }
+        p.judul { font-family: 'Montserrat'; font-size: 35px; font-weight: 710; }
         p.info { font-family: 'Montserrat'; font-size: 25px; }
         p { font-family: 'Montserrat'; font-size: 16px; }
         a:link { font-family: 'Montserrat'; color: #3a0ca3; text-decoration:none; }
@@ -90,7 +90,7 @@ def goto(page):
 ### HEADER SECTION ###
 st.sidebar.write(" ")
 st.sidebar.write(" ")
-logoSide, titleSide = st.sidebar.columns((1, 3))
+logoSide, titleSide = st.sidebar.columns([1, 2])
 logoSide.markdown('''
     <center>
     <a href="javascript:document.getElementsByClassName('css-1ydp377 edgvbvh6')[2].click();">
@@ -99,11 +99,11 @@ logoSide.markdown('''
     </center>
     ''', unsafe_allow_html=True)
 titleSide.markdown("""
-    <h2 align='left'>
+    <p class='judul' align='center'>
         <a href="javascript:document.getElementsByClassName('css-1ydp377 edgvbvh6')[2].click();">
             JAKA UI 
         </a>
-    </h2>
+    </p>
     """, unsafe_allow_html=True)
 logoMain, textMain = st.columns((1, 5))
 if st.session_state['auth'] and st.session_state['menu'] != 'Login':
