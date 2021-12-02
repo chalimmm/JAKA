@@ -71,19 +71,4 @@ def app():
                     </button>
                 </div>
             </a>
-            """, unsafe_allow_html=True)
-
-def reset():
-    for key in st.session_state.keys():
-        del st.session_state[key]
-
-def out():
-    st.markdown("<h1 style='text-align: center;'>JAKA</h1>", unsafe_allow_html=True)
-    st.markdown("<center><a style='text-align: center;'>Sign in to your SSO-UI account.</a></center>", unsafe_allow_html=True)
-    st.write(" ")
-    st.write(" ")
-    
-    left, center, right = st.columns([1, 2, 1])
-    with center:
-        st.markdown("<center><a style='text-align: center;'>Yakin mau keluar?</a></center>", unsafe_allow_html=True)
-        st.button('Iya, yakin.', on_click=reset, args=None)
+            """, unsafe_allow_html=True
