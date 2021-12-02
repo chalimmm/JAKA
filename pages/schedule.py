@@ -23,14 +23,14 @@ def Course():
     
     with filter:
         for course in courses:
-            listCourse.append(course+" - "+courses[course]['Nama']) 
-        st.multiselect('Type or scroll to search', options=listCourse, default=st.session_state['selectedCourse'], key='selected', on_change=updateCourse)    
+            listCourse.append(course + " - " + courses[course]['Nama'])
+        st.multiselect('Type or scroll to search', options = listCourse, default = st.session_state['selectedCourse'], key = 'selected', on_change = updateCourse)    
         
     sks = 0
     for course in st.session_state['selectedCourse']:
         sks += int(course[-14:-13])
     
-    status.metric(label="SKS", value=sks, delta=(24 - sks))
+    status.metric(label = "SKS", value = sks, delta = (24 - sks))
     
     st.write("---")
     with st.expander("Selected Course", expanded=True):
@@ -40,7 +40,7 @@ def Course():
     with continueBtn:
         st.write(" ")
         if sks in range(1, 25):
-            st.button('Next', on_click=goto, args=['Choose Schedule'])
+            st.button('Next', on_click = goto, args = ['Choose Schedule'])
         else:
             st.markdown('''
             <a href='javascript:alert("Please, select the schedule and make sure it does not exceed maximum sks!");'>

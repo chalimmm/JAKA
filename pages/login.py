@@ -32,7 +32,7 @@ def app():
         p = st.text_input('Password', help='Masukkan password akun SSO UI', type='password', max_chars=30, on_change=relogin, args=None)
         with st.expander("Kebijakan Privasi JAKA"):
             st.write("""
-                **Dengan menggunakan JAKA, Anda setuju dengan Kebijakan Privasi kami, yaitu:**\n
+                #### **Dengan menggunakan JAKA, Anda setuju dengan Kebijakan Privasi kami, yaitu:**\n
                 1. JAKA menggunakan informasi login berupa username dan kata sandi akun Single-Sign-On Universitas Indonesia untuk masuk ke SIAK-NG.\n
                 2. Informasi login tersebut digunakan untuk proses otentikasi, yaitu untuk memastikan bahwa pihak yang sedang melakukan proses tersebut adalah mahasiswa aktif di Universitas Indonesia.\n
                 3. Selain untuk proses otentikasi, informasi login tersebut juga digunakan untuk proses pengambilan data dari halaman jadwal yang ada pada SIAK-NG untuk dapat diproses pada situs web JAKA agar mahasiswa dapat menyusun beberapa jadwal dari data yang sudah diambil.\n
