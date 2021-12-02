@@ -22,7 +22,6 @@ def app():
     
     with c2:
         lottie_file = load_lottiefile("assets/schedule.json")  # replace link to local lottie file
-        # lottie_file = load_lottieurl("https://assets2.lottiefiles.com/packages/lf20_ok9cq9zj.json")
 
         st_lottie(
             lottie_file,
