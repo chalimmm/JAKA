@@ -32,7 +32,7 @@ def app():
         p = st.text_input('Password', help='Masukkan password akun SSO UI', type='password', max_chars=30, on_change=relogin, args=None)
         with st.expander("Kebijakan Privasi JAKA"):
             st.write("""
-                ***Dengan menggunakan JAKA, Anda setuju dengan Kebijakan Privasi kami, yaitu:***\n
+                **Dengan menggunakan JAKA, Anda setuju dengan Kebijakan Privasi kami, yaitu:**\n
                 1. JAKA menggunakan informasi login berupa username dan kata sandi akun Single-Sign-On Universitas Indonesia untuk masuk ke SIAK-NG.\n
                 2. Informasi login tersebut digunakan untuk proses otentikasi, yaitu untuk memastikan bahwa pihak yang sedang melakukan proses tersebut adalah mahasiswa aktif di Universitas Indonesia.\n
                 3. Selain untuk proses otentikasi, informasi login tersebut juga digunakan untuk proses pengambilan data dari halaman jadwal yang ada pada SIAK-NG untuk dapat diproses pada situs web JAKA agar mahasiswa dapat menyusun beberapa jadwal dari data yang sudah diambil.\n
@@ -64,36 +64,14 @@ def app():
             loginBtn.button('Login', on_click=goto, args=['Dashboard'])
         else:
             loginBtn.markdown("""
-            <link rel="preconnect" href="https://fonts.googleapis.com">
-            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-            <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
-            <style>
-            div.disabledButton > button {
-                background-color: #3a0ca3;
-                border-radius: 50px;
-                display: inline-block;
-                border: none;
-                transition: all 0.4s ease 0s;
-                color: #ffffff;
-                padding: 15px 32px;
-                text-align: center;
-                text-transform: uppercase;
-                text-decoration: none;
-                display: inline-block;
-                font-family: 'Montserrat';
-                font-weight: 700;
-                margin: 4px 2px;
-                cursor: not-allowed;
-                width: 100%;
-            }
-            </style>""", unsafe_allow_html=True)
-            loginBtn.markdown('''
-                <div class='disabledButton'>
-                <button disabled>
-                Login
-                </button>
+            <a href='javascript:alert("Authenticated User Only! Please, check the User Agreement!");'>
+                <div class="row-widget customButton">
+                    <button>
+                        Login
+                    </button>
                 </div>
-            ''', unsafe_allow_html=True)
+            </a>
+            """, unsafe_allow_html=True)
 
 def reset():
     for key in st.session_state.keys():

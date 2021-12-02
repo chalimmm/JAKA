@@ -37,45 +37,23 @@ def Course():
         for selected in st.session_state['selectedCourse']:
             st.write(selected)
     
-    with continueBtn:        
+    with continueBtn:
+        st.write(" ")
         if sks in range(1, 25):
-            st.write(" ")
-            st.button('Continue', on_click=goto, args=['Choose Schedule'])
+            st.button('Next', on_click=goto, args=['Choose Schedule'])
         else:
-            st.markdown("""
-            <link rel="preconnect" href="https://fonts.googleapis.com">
-            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-            <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
-            <style>
-            div.disabledButton > button {
-                background-color: #3a0ca3;
-                border-radius: 50px;
-                display: inline-block;
-                border: none;
-                transition: all 0.4s ease 0s;
-                color: white;
-                padding: 15px 32px;
-                text-align: center;
-                text-transform: uppercase;
-                text-decoration: none;
-                display: inline-block;
-                font-family: 'Montserrat';
-                font-weight: 700;
-                margin: 4px 2px;
-                cursor: not-allowed;
-                width: 100%;
-            }
-            </style>""", unsafe_allow_html=True)
             st.markdown('''
-                <div class='disabledButton'>
-                <button disabled>
-                Continue
-                </button>
+            <a href='javascript:alert("Please, select the schedule and make sure it does not exceed maximum sks!");'>
+                <div class="customButton">
+                    <button>
+                        Next
+                    </button>
                 </div>
+            </a>
             ''', unsafe_allow_html=True)
     
 def Class():
-    headerTxt, backBtn, saveBtn = st.columns([4, 1, 1])
+    headerTxt, backBtn, checkBtn = st.columns([4, 1, 1])
     headerTxt.header('Select Class')
     
     if 'selectedCourse' in st.session_state:
@@ -87,7 +65,6 @@ def Class():
     
     optHead.markdown("<p><h3 align='center'>Class</h3></p>", unsafe_allow_html=True)
     schedHead.markdown("<p><h3 align='center'>Schedule</h3></p>", unsafe_allow_html=True)
-    
     lectHead.markdown("<p><h3 align='center'>Lecturer</h3></p>", unsafe_allow_html=True)
     
     for courseName in temp:
@@ -132,39 +109,17 @@ def Class():
         st.write(" ")
         st.button('Back', on_click=goto, args=['Create Schedule'])
     
-    with saveBtn:        
+    with checkBtn:
+        st.write(" ")    
         if noConflict:
-            st.write(" ")
-            st.button('Save', on_click=goto, args=['Save Schedule'])
+            st.button('Check', on_click=goto, args=['Save Schedule'])
         else:
-            st.markdown("""
-            <link rel="preconnect" href="https://fonts.googleapis.com">
-            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-            <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
-            <style>
-            div.disabledButton > button {
-                background-color: #3a0ca3;
-                border-radius: 50px;
-                display: inline-block;
-                border: none;
-                transition: all 0.4s ease 0s;
-                color: white;
-                padding: 15px 32px;
-                text-align: center;
-                text-transform: uppercase;
-                text-decoration: none;
-                display: inline-block;
-                font-family: 'Montserrat';
-                font-weight: 700;
-                margin: 4px 2px;
-                cursor: not-allowed;
-                width: 100%;
-            }
-            </style>""", unsafe_allow_html=True)
             st.markdown('''
-                <div class='disabledButton'>
-                <button disabled>
-                Save
-                </button>
+            <a href='javascript:alert("Please, check the schedule");'>
+                <div class="customButton">
+                    <button>
+                        Check
+                    </button>
                 </div>
+            </a>
             ''', unsafe_allow_html=True)
