@@ -24,7 +24,7 @@ def app():
     c1, a1, c2, a2, c3 = st.columns((2, 1, 2, 1, 2))
     
     with c1:
-        lottie_url = "https://assets10.lottiefiles.com/packages/lf20_zuiv9qn4.json"
+        lottie_url = "assets/create.json"
         lottie_json = load_lottieurl(lottie_url)
 
         st_lottie(
@@ -41,7 +41,7 @@ def app():
         st.button('Create Schedule', on_click=goto, args=['Create Schedule'])
         
     with c2:
-        lottie_url = "https://assets5.lottiefiles.com/packages/lf20_7k4anl64.json"
+        lottie_url = "assets/modify.json"
         lottie_json = load_lottieurl(lottie_url)
 
         st_lottie(
@@ -58,7 +58,7 @@ def app():
         st.button('Modify Schedule', on_click=goto, args=['Modify Schedule'])
         
     with c3:
-        lottie_url = "https://assets10.lottiefiles.com/packages/lf20_v6sxmrkx.json"
+        lottie_url = "assets/delete.json"
         lottie_json = load_lottieurl(lottie_url)
 
         st_lottie(
