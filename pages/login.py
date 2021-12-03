@@ -28,8 +28,8 @@ def app():
     with center:
         status = st.container()
         
-        u = st.text_input('Username', help='Masukkan username akun SSO UI', max_chars=30, on_change=relogin, args=None)
-        p = st.text_input('Password', help='Masukkan password akun SSO UI', type='password', max_chars=30, on_change=relogin, args=None)
+        u = st.text_input('Username', help='Masukkan username akun SSO UI', max_chars=30)
+        p = st.text_input('Password', help='Masukkan password akun SSO UI', type='password')
         with st.expander("Kebijakan Privasi JAKA"):
             st.write("""
                 #### **Dengan menggunakan JAKA, Anda setuju dengan Kebijakan Privasi kami, yaitu:**\n

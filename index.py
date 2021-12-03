@@ -1,5 +1,6 @@
 ### IMPORT LIBRARIES AND PAGES ###
 import streamlit as st
+import streamlit.components.v1 as components
 from pages import home, login, error, schedule, dashboard
 
 ### INIT SESSION STATE ###
@@ -21,8 +22,7 @@ css_style = """
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
     <style>
-        #MainMenu {visibility: hidden;}
-        footer {visibility: hidden;}
+        #MainMenu, footer, .edgvbvh6, .ehezqtx2 {visibility:hidden;} 
         div.stButton > button {
             background-color: #f72585;
             border-radius: 50px;
@@ -67,10 +67,35 @@ css_style = """
             color: #3a0ca3;
             box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 10px 20px 0 rgba(0,0,0,0.19);
         }
+        .navTxt {
+            font-family: 'Montserrat';
+            font-size: 24px;
+            font-weight: 600;
+            padding-top: 20px;
+            padding-bottom: 5px;
+            background-color: #f8f8f8;
+            position: fixed;
+            top: 0;
+            right: 50px;
+            width: 25%;
+            height: 75px;
+            z-index:99999;
+            opacity: 0.95;
+        }
+        .navImg {
+            padding-top: 25px;
+            background-color: #f8f8f8;
+            top: 0;
+            position: fixed;
+            width: 100%;
+            height: 75px;
+            z-index:99990;
+            opacity: 0.95;
+        }
         h1 { font-family: 'Montserrat';font-size: 55px; font-weight: 900; }
         h2,h3,h4,h5 { font-family: 'Montserrat'; }
-        p.judul { font-family: 'Montserrat'; font-size: 35px; font-weight: 710; }
-        p.info { font-family: 'Montserrat'; font-size: 25px; }
+        .judul { font-family: 'Montserrat'; font-size: 35px; font-weight: 710; }
+        .info { font-family: 'Montserrat'; font-size: 25px; }
         p { font-family: 'Montserrat'; font-size: 16px; }
         a:link { font-family: 'Montserrat'; color: #3a0ca3; text-decoration:none; }
         a:hover { color: #f72585; text-decoration:none; }
@@ -88,9 +113,7 @@ def goto(page):
     st.session_state['menu'] = page
 
 ### HEADER SECTION ###
-st.sidebar.write(" ")
-st.sidebar.write(" ")
-logoSide, titleSide = st.sidebar.columns([1, 2])
+logoSide, titleSide = st.sidebar.columns((1, 2))
 logoSide.markdown('''
     <center>
     <a href="javascript:document.getElementsByClassName('css-1ydp377 edgvbvh6')[2].click();">
@@ -101,23 +124,32 @@ logoSide.markdown('''
 titleSide.markdown("""
     <p class='judul' align='center'>
         <a href="javascript:document.getElementsByClassName('css-1ydp377 edgvbvh6')[2].click();">
-            JAKA UI 
+            JAKA
         </a>
     </p>
     """, unsafe_allow_html=True)
-logoMain, textMain = st.columns((1, 5))
+logoMain, textMain = st.columns((1, 4))
 if st.session_state['auth'] and st.session_state['menu'] != 'Login':
     logoMain.markdown('''
-    <a href="javascript:document.getElementsByClassName('css-1ydp377 edgvbvh6')[1].click();">
-        <img src="https://i.ibb.co/yP2wjhW/jaka-02.png" alt="Logo JAKA" style="width:50px;height:50px;"/>
-    </a>
+    <div class='navImg'> 
+        <a href="javascript:document.getElementsByClassName('css-1ydp377 edgvbvh6')[1].click();">
+            <img src="https://i.ibb.co/yP2wjhW/jaka-02.png" alt="Logo JAKA" style="width:50px;height:50px;"/>
+        </a>
+    </div>
     ''', unsafe_allow_html=True)
-    textMain.markdown("""
-    <h4 align='right'>
+    st.sidebar.markdown("""
+    <h4 align='center'>
         <a href="javascript:document.getElementsByClassName('css-1ydp377 edgvbvh6')[2].click();">
             Hai, """+st.session_state['username']+""" 
         </a>
     </h4>
+    """, unsafe_allow_html=True)
+    textMain.markdown("""
+    <div align='right' class='navTxt'>
+        <a href="javascript:document.getElementsByClassName('css-1ydp377 edgvbvh6')[2].click();">
+            Dashboard 
+        </a>
+    </div>
     """, unsafe_allow_html=True)
     st.sidebar.button('Dashboard', on_click=goto, args=['Dashboard'])
     st.sidebar.markdown("""
@@ -131,22 +163,26 @@ if st.session_state['auth'] and st.session_state['menu'] != 'Login':
     """, unsafe_allow_html=True)
 elif st.session_state['menu'] == 'Home':
     logoMain.markdown('''
-    <a href="javascript:window.location.reload(true);">
-        <img src="https://i.ibb.co/yP2wjhW/jaka-02.png" alt="Logo JAKA" style="width:50px;height:50px;"/>
-    </a>
+    <div class='navImg'>
+        <a href="javascript:window.location.reload(true);">
+            <img src="https://i.ibb.co/yP2wjhW/jaka-02.png" alt="Logo JAKA" style="width:50px;height:50px;"/>
+        </a>
+    </div>
     ''', unsafe_allow_html=True)
     textMain.markdown("""
-    <h4 align='right'>
+    <div align='right' class='navTxt'>
         <a href="javascript:document.getElementsByClassName('css-1wwkvaf edgvbvh1')[0].click();">
             Login 
         </a>
-    </h4>
+    </div>
     """, unsafe_allow_html=True)
 else:
     logoMain.markdown('''
-    <a href="javascript:window.location.reload(true);">
-        <img src="https://i.ibb.co/yP2wjhW/jaka-02.png" alt="Logo JAKA" style="width:50px;height:50px;"/>
-    </a>
+    <div class='navImg'>
+        <a href="javascript:window.location.reload(true);">
+            <img src="https://i.ibb.co/yP2wjhW/jaka-02.png" alt="Logo JAKA" style="width:50px;height:50px;"/>
+        </a>
+    </div>
     ''', unsafe_allow_html=True)
 
 ### PAGE CONTROLLER ###
