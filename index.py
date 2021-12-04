@@ -125,16 +125,16 @@ css_style = """
             font-size: 16px;
             font-weight: 600;
         }
-        div.st-hi > div.st-ha, div.st-ev > div.st-hf {
+        div.st-hi > div.st-ha, div.st-hh > div.st-ha, div.st-eu > div.st-hf {
             display: none;
         }
-        div.st-hi {
+        div.st-hi, div.st-hh {
             width: 5px;
             height: 50px;
             background: #3a0ca3;
             border-radius: 1px;
         }
-        div.st-ev {
+        div.st-eu, div.st-ev, div.st-et {
             width: 30px;
             height: 50px;
             background: #f72585;
