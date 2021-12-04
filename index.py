@@ -146,7 +146,7 @@ css_style = """
             background: #3a0ca3;
             border-radius: 1px;
         }
-        label[data-baseweb="radio"] > div.st-et {
+        label[data-baseweb="radio"] > div.st-et, label[data-baseweb="radio"] > div.st-eu, label[data-baseweb="radio"] > div.st-ev {
             width: 30px;
             height: 50px;
             background: #f72585;
