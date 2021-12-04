@@ -107,7 +107,6 @@ css_style = """
             font-family: 'Montserrat';
             font-size: 20px;
             background-color: #ffffff;
-            padding-top: 25px;
         }
         label > div.st-e6.st-dn.st-bt.st-ae.st-af.st-ag.st-ah.st-ai.st-aj {
             box-sizing: border-box;
