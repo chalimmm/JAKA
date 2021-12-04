@@ -126,16 +126,16 @@ css_style = """
             font-size: 16px;
             font-weight: 600;
         }
-        div.st-hi > div.st-ha, div.st-et > div.st-hf {
+        div.st-hi > div.st-ha, div.st-ev > div.st-hf {
             display: none;
         }
-        div.st-hi {
+        div.st-c4.st-hi.st-ha.st-hb.st-hc.st-hd.st-az.st-b4.st-dq.st-he.st-eb.st-ee.st-ec.st-ed.st-c5.st-e6.st-dr.st-cf.st-b2.st-cz {
             width: 5px;
             height: 50px;
             background: #3a0ca3;
             border-radius: 1px;
         }
-        div.st-et {
+        div.st-c4.st-ev.st-ha.st-hb.st-hc.st-hd.st-az.st-b4.st-dq.st-he.st-eb.st-ee.st-ec.st-ed.st-c5.st-e6.st-dr.st-cf.st-b2.st-cz {
             width: 30px;
             height: 50px;
             background: #f72585;
