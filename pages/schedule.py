@@ -61,22 +61,21 @@ def Class():
     
     st.write("---")
     
-    optHead, schedHead, lectHead = st.columns([3, 2, 3])
+    # optHead, schedHead, lectHead = st.columns([3, 2, 3])
     
-    optHead.markdown("<p><h3 align='center'>Class</h3></p>", unsafe_allow_html=True)
-    schedHead.markdown("<p><h3 align='center'>Schedule</h3></p>", unsafe_allow_html=True)
-    lectHead.markdown("<p><h3 align='center'>Lecturer</h3></p>", unsafe_allow_html=True)
+    # optHead.markdown("<p><h3 align='center'>Class</h3></p>", unsafe_allow_html=True)
+    # schedHead.markdown("<p><h3 align='center'>Schedule</h3></p>", unsafe_allow_html=True)
+    # lectHead.markdown("<p><h3 align='center'>Lecturer</h3></p>", unsafe_allow_html=True)
     
     for courseName in temp:
         courseCode = courseName[:10].strip()
         with st.expander(courseName, True):
             data = st.session_state['courses'][courseCode]['Kelas']
             with st.container():
-                opt, sched, lect = st.columns([3, 2, 3])
-                
-                for i in range(3):
+                opt, sched = st.columns([1, 2])
+                for i in range(2):
                     sched.write(" ")
-                    lect.write(" ")
+                    # lect.write(" ")
                 
                 indexClass = 0
                 option = []
@@ -87,19 +86,18 @@ def Class():
                     if courseCode not in st.session_state:
                         st.session_state[courseCode] = 'Rekomendasi JAKA'
                 else:
-                    opt.write(" ")
                     st.session_state[courseCode] = data[0]['Nama']
                 
                 for kelas in data:
                     temp = kelas['Nama']
                     option.append(temp)
                     
-                    for jadwal in kelas['Jadwal']:
-                        sched.markdown("<li align='center'>"+jadwal+"</li>", unsafe_allow_html=True)
+                    # for jadwal in kelas['Jadwal']:
+                    #     sched.markdown("<li align='center'>"+jadwal+"</li>", unsafe_allow_html=True)
                     
-                    for dosen in kelas['Dosen']:
-                        lect.markdown("<li align='center'>"+dosen+"</li>", unsafe_allow_html=True)
-                
+                    # for dosen in kelas['Dosen']:
+                    #     lect.markdown("<li align='center'>"+dosen+"</li>", unsafe_allow_html=True)
+                sched.table(data)
                 indexClass = option.index(st.session_state[courseCode])
                 opt.radio(' ', options=option, key=courseCode, index=indexClass)        
     

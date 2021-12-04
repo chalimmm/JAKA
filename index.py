@@ -103,7 +103,44 @@ css_style = """
         label { font-family: 'Montserrat';font-size: 20px; font-weight: 600; }
         div.streamlit-expanderHeader { font-family: 'Montserrat';font-size: 20px; font-weight: 600; background-color: #f72585; color: #ffffff; }
         div.streamlit-expanderHeader:hover { background-color: #ffffff; color: #f72585; }
-        div.streamlit-expanderContent { font-family: 'Montserrat'; font-size: 20px; }
+        div.streamlit-expanderContent {
+            font-family: 'Montserrat';
+            font-size: 20px;
+            background-color: #ffffff;
+            padding-top: 25px;
+        }
+        label > div.st-e6.st-dn.st-bt.st-ae.st-af.st-ag.st-ah.st-ai.st-aj {
+            box-sizing: border-box;
+            width: 100%
+            height: 50px;
+            display: block;
+            background: transparent;
+            border-radius: 5px;
+            padding: 1rem;
+            margin-top: -1rem;
+            margin-right: 0.5rem;
+            margin-left: -0.5rem;
+            margin-bottom: -1rem;
+            position: relative;
+            font-family: 'Montserrat';
+            font-size: 16px;
+            font-weight: 600;
+        }
+        div.st-hi > div.st-ha, div.st-et > div.st-hf {
+            display: none;
+        }
+        div.st-hi {
+            width: 5px;
+            height: 50px;
+            background: #3a0ca3;
+            border-radius: 1px;
+        }
+        div.st-et {
+            width: 30px;
+            height: 50px;
+            background: #f72585;
+            border-radius: 1px;
+        }
     </style>
     """
 st.markdown(css_style, unsafe_allow_html=True)
