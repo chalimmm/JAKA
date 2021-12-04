@@ -101,15 +101,26 @@ css_style = """
         a:hover { color: #f72585; text-decoration:none; }
         img:hover { opacity: 0.5; }
         label { font-family: 'Montserrat';font-size: 20px; font-weight: 600; }
-        div.streamlit-expanderHeader { font-family: 'Montserrat';font-size: 20px; font-weight: 600; background-color: #f72585; color: #ffffff; }
-        div.streamlit-expanderHeader:hover { background-color: #ffffff; color: #f72585; }
+        div.streamlit-expanderHeader {
+            font-family: 'Montserrat';
+            font-size: 20px;
+            font-weight: 600;
+            background-color: #f72585;
+            color: #ffffff;
+        }
+        li > div[aria-expanded="true"] > svg[title="Expand"] {
+            color: #ffffff;
+        }
+        li > div[aria-expanded="true"], div.streamlit-expanderHeader:hover {
+            background-color: #ffffff;
+            color: #f72585;
+        }
         div.streamlit-expanderContent {
             font-family: 'Montserrat';
             font-size: 20px;
             background-color: #ffffff;
-            padding-top: 25px;
         }
-        label > div.st-e6.st-dn.st-bt.st-ae.st-af.st-ag.st-ah.st-ai.st-aj {
+        label[data-baseweb="radio"] > div.st-e6.st-dn.st-bt.st-ae.st-af.st-ag.st-ah.st-ai.st-aj{
             box-sizing: border-box;
             width: 100%
             height: 50px;
@@ -126,16 +137,16 @@ css_style = """
             font-size: 16px;
             font-weight: 600;
         }
-        div.st-hi > div.st-ha, div.st-et > div.st-hf {
+        label[data-baseweb="radio"] > div > div {
             display: none;
         }
-        div.st-hi {
+        label[data-baseweb="radio"] > div.st-hj {
             width: 5px;
             height: 50px;
             background: #3a0ca3;
             border-radius: 1px;
         }
-        div.st-et {
+        label[data-baseweb="radio"] > div.st-et {
             width: 30px;
             height: 50px;
             background: #f72585;
