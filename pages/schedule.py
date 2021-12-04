@@ -75,7 +75,6 @@ def Class():
                 opt, sched = st.columns([1, 2])
                 for i in range(2):
                     sched.write(" ")
-                    # lect.write(" ")
                 
                 indexClass = 0
                 option = []
@@ -91,14 +90,19 @@ def Class():
                 for kelas in data:
                     temp = kelas['Nama']
                     option.append(temp)
-                    
-                    # for jadwal in kelas['Jadwal']:
-                    #     sched.markdown("<li align='center'>"+jadwal+"</li>", unsafe_allow_html=True)
-                    
-                    # for dosen in kelas['Dosen']:
-                    #     lect.markdown("<li align='center'>"+dosen+"</li>", unsafe_allow_html=True)
-                sched.table(data)
+                
                 indexClass = option.index(st.session_state[courseCode])
+                
+                if indexClass or len(data) == 1:
+                    idx = indexClass - 1 if len(data) > 1 else 0
+                    sched.write("##### **Detail Kelas**")
+                    sched.write("⌛ "+" ⌛ ".join(data[idx]['Jadwal']))
+                    sched.write("🚪 "+data[idx]['Ruang'])
+                    sched.write('🎓 '+' 🎓 '.join(data[idx]['Dosen']))
+                else:
+                    sched.write(" ")
+                    sched.write("##### **Silakan pilih kelas yang kamu mau atau serahin aja ke JAKA**")
+                
                 opt.radio(' ', options=option, key=courseCode, index=indexClass)        
     
     noConflict = False
