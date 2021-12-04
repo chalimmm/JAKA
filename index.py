@@ -140,7 +140,7 @@ css_style = """
         label[data-baseweb="radio"] > div > div {
             display: none;
         }
-        label[data-baseweb="radio"] > div.st-hj {
+        label[data-baseweb="radio"] > div.st-az {
             width: 5px;
             height: 50px;
             background: #3a0ca3;
