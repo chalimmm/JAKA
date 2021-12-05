@@ -46,7 +46,7 @@ def Course():
             st.button('Next', on_click = goto, args = ['Choose Schedule'])
         else:
             st.markdown('''
-            <a href='javascript:alert("Please, select the schedule and make sure it does not exceed maximum sks!");'>
+            <a href='javascript:alert("Please select the schedule and make sure it does not exceed the number of your maximum credits!");'>
                 <div class="customButton">
                     <button>
                         Next

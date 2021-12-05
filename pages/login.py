@@ -26,19 +26,19 @@ def app():
     with center:
         status = st.container()
         
-        u = st.text_input('Username', help='Masukkan username akun SSO UI', max_chars=30)
-        p = st.text_input('Password', help='Masukkan password akun SSO UI', type='password')
-        with st.expander("Kebijakan Privasi JAKA"):
+        u = st.text_input('Username', help="Enter your SSO UI account's username", max_chars=30)
+        p = st.text_input('Password', help="Enter your SSO UI account's password", type='password')
+        with st.expander("JAKA's Privacy Policy"):
             st.write("""
-                #### **Dengan menggunakan JAKA, Anda setuju dengan Kebijakan Privasi kami, yaitu:**\n
-                1. JAKA menggunakan informasi login berupa username dan kata sandi akun Single-Sign-On Universitas Indonesia untuk masuk ke SIAK-NG.\n
-                2. Informasi login tersebut digunakan untuk proses otentikasi, yaitu untuk memastikan bahwa pihak yang sedang melakukan proses tersebut adalah mahasiswa aktif di Universitas Indonesia.\n
-                3. Selain untuk proses otentikasi, informasi login tersebut juga digunakan untuk proses pengambilan data dari halaman jadwal yang ada pada SIAK-NG untuk dapat diproses pada situs web JAKA agar mahasiswa dapat menyusun beberapa jadwal dari data yang sudah diambil.\n
-                4. JAKA TIDAK menyimpan informasi login mahasiswa dalam bentuk apapun.\n
-                5. Perlu diingat bahwa JAKA tidak bertanggung jawab apabila mahasiswa tidak dapat mengambil jadwal sesuai dengan apa yang direkomendasikan oleh JAKA.\n
-                6. Perlu diingat bahwa pengguna JAKA harus mempertimbangkan jumlah SKS maksimum yang dapat diambil pada setiap penyusunan jadwal, karena JAKA menyamaratakan jumlah SKS maksimum untuk setiap mahasiswa, yaitu 24 SKS.\n
+                #### **With using JAKA, You agreed to comply with our Privacy Policy, in which they are as follows.**\n
+                1. JAKA uses login information, such as the username and password of Universitas Indonesia's Signle-Sign-On account to enrter SIAK-NG.\n
+                2. That login information will be used for the authentication process, which is to ensure that every party that does the process is an active student in Universitas Indonesia.\n
+                3. Other than being used for the authentication process, your login information will also be used for data scraping from the schedule page in SIAK-NG so that it can be processed by JAKA for the students to arrange their course plan from the retreived data.\n
+                4. JAKA DOES NOT save users' login information in any form.\n
+                5. JAKA IS NOT responsible for its users' failure in choosing a schedule in SIAK-NG based on JAKA's recommendation.\n
+                6. JAKA treats all users in the same way, in which it means that every single one of its users will have a maximum of 24 possible credits for the term. So, each user has to know their respective maximum credits to be taken for the term.\n
             """)
-        isAgree = st.checkbox('Saya telah membaca dan menyetujui Kebijakan Privasi JAKA')
+        isAgree = st.checkbox("I have read JAKA's Privacy Policy.")
         
         loginBtn = st.container()
         
