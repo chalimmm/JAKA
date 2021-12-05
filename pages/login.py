@@ -30,7 +30,7 @@ def app():
         
         u = st.text_input('Username', help="Enter your SSO UI account's username", max_chars=30)
         p = st.text_input('Password', help="Enter your SSO UI account's password", type='password')
-        with st.expander("Kebijakan Privasi JAKA"):
+        with st.expander("JAKA's Privacy Policy"):
             st.write("""
                 #### **With using JAKA, You agreed to comply with our Privacy Policy, in which they are as follows.**\n
                 1. JAKA uses login information, such as the username and password of Universitas Indonesia's Signle-Sign-On account to enrter SIAK-NG.\n
