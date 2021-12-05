@@ -1,7 +1,14 @@
 ### IMPORT LIBRARIES AND PAGES ###
 import streamlit as st
-import streamlit.components.v1 as components
 from pages import home, login, error, schedule, dashboard
+
+### FIREBASE CONNECT ###
+import firebase_admin
+from firebase_admin import credentials
+
+if not firebase_admin._apps:
+    cred = credentials.Certificate('pages/serviceAccountKey.json') 
+    firebase_admin.initialize_app(cred)
 
 ### INIT SESSION STATE ###
 if 'menu'           not in st.session_state : st.session_state['menu']           = 'Home'
@@ -45,7 +52,7 @@ css_style = """
             background-color: #f8f8f8;
             box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 10px 20px 0 rgba(0,0,0,0.19);
         }
-        div.customButton > button {
+        .customButton > button {
             background-color: #3a0ca3;
             border-radius: 50px;
             display: inline-block;
@@ -62,7 +69,7 @@ css_style = """
             margin: 4px 2px;
             width: 100%;
         }
-        div.customButton > button:hover {
+        .customButton > button:hover {
             background-color: #f8f8f8;
             color: #3a0ca3;
             box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 10px 20px 0 rgba(0,0,0,0.19);
@@ -146,7 +153,7 @@ css_style = """
             background: #3a0ca3;
             border-radius: 1px;
         }
-        label[data-baseweb="radio"] > div.st-et, label[data-baseweb="radio"] > div.st-eu, label[data-baseweb="radio"] > div.st-ev {
+        label[data-baseweb="radio"] > div.st-et, label[data-baseweb="radio"] > div.st-eu, label[data-baseweb="radio"] > div.st-ev, label[data-baseweb="radio"] > div.st-ew, label[data-baseweb="radio"] > div.st-ex {
             width: 30px;
             height: 50px;
             background: #f72585;
@@ -195,11 +202,12 @@ if st.session_state['auth'] and st.session_state['menu'] != 'Login':
     textMain.markdown("""
     <div align='right' class='navTxt'>
         <a href="javascript:document.getElementsByClassName('css-1ydp377 edgvbvh6')[2].click();">
-            Dashboard 
+            """+st.session_state['menu']+""" 
         </a>
     </div>
     """, unsafe_allow_html=True)
     st.sidebar.button('Dashboard', on_click=goto, args=['Dashboard'])
+    st.sidebar.button('Settings', on_click=goto, args=['Settings'])
     st.sidebar.markdown("""
     <a href='javascript:if(confirm("Are you sure to logout?")) window.location.reload(true);'>
         <div class="customButton">
@@ -235,18 +243,18 @@ else:
 
 ### PAGE CONTROLLER ###
 if st.session_state['auth']:
-    if st.session_state['menu'] == 'Dashboard':
-        dashboard.app()
+    if st.session_state['menu'] == 'Settings':
+        dashboard.Settings()
     elif st.session_state['menu'] == 'Create Schedule':
         schedule.Course()
     elif st.session_state['menu'] == 'Modify Schedule':
-        schedule.Course()
+        dashboard.Modify()
     elif st.session_state['menu'] == 'Delete Schedule':
-        schedule.Course()
+        dashboard.Delete()
     elif st.session_state['menu'] == 'Choose Schedule':
         schedule.Class()
     else:
-        dashboard.app()
+        dashboard.View()
 else:
     if st.session_state['menu'] == 'Home':
         home.app()

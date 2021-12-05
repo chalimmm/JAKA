@@ -20,8 +20,6 @@ def app():
             Login using your SSO-UI account.
         </p>
     </center>
-    <br>
-    <br>
     """, unsafe_allow_html=True)
 
     empty, center, empty = st.columns([1, 2, 1])
@@ -44,24 +42,22 @@ def app():
         
         loginBtn = st.container()
         
-        if isAgree:
-            if u and p and not st.session_state['auth']:
+        if u and p and isAgree:
+            if st.session_state['auth']:
+                loginBtn.write(" ")
+                loginBtn.button('Login', on_click=goto, args=['Dashboard'])
+            else:
                 try:
                     st.session_state['auth'] = scraping.app(u, p)
                     if st.session_state['auth']:
                         st.session_state['username'] = u
-                        status.success('Authenticated')
+                        status.success('Authenticated, hai '+u)
+                        loginBtn.write(" ")
+                        loginBtn.button('Login', on_click=goto, args=['Dashboard'])
                     else:
                         status.error('Wrong username or password')
                 except:
                     status.error('Authentication Failed')
-                    pass
-            elif not st.session_state['auth']:
-                status.warning('Username dan Password tidak boleh kosong')
-        
-        if st.session_state['auth'] and isAgree:
-            loginBtn.write(" ")
-            loginBtn.button('Login', on_click=goto, args=['Dashboard'])
         else:
             loginBtn.markdown("""
             <a href='javascript:alert("Authenticated User Only! Please, check the User Agreement!");'>
@@ -72,18 +68,5 @@ def app():
                 </div>
             </a>
             """, unsafe_allow_html=True)
-
-def reset():
-    for key in st.session_state.keys():
-        del st.session_state[key]
-
-def out():
-    st.markdown("<h1 style='text-align: center;'>JAKA</h1>", unsafe_allow_html=True)
-    st.markdown("<center><a style='text-align: center;'>Sign in to your SSO-UI account.</a></center>", unsafe_allow_html=True)
-    st.write(" ")
-    st.write(" ")
-    
-    left, center, right = st.columns([1, 2, 1])
-    with center:
-        st.markdown("<center><a style='text-align: center;'>Yakin mau keluar?</a></center>", unsafe_allow_html=True)
-        st.button('Iya, yakin.', on_click=reset, args=None)
+            status.warning('Masukkan username dan password')
+            st.stop()
