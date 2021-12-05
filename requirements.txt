@@ -6,3 +6,4 @@ jsonschema==2.6.0
 setuptools>=59.3.0
 streamlit-lottie==0.0.2
 firebase-admin
+networkx
