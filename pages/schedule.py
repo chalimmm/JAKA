@@ -23,7 +23,7 @@ def Course():
     
     with filter:
         for course in courses:
-            listCourse.append(course + " - " + courses[course]['Nama'])
+            listCourse.append(course + " - " + courses[course]['Name'])
         st.multiselect('Type or scroll to search', options = listCourse, default = st.session_state['selectedCourse'], key = 'selected', on_change = updateCourse)    
         
     sks = 0
@@ -43,7 +43,7 @@ def Course():
             st.button('Next', on_click = goto, args = ['Choose Schedule'])
         else:
             st.markdown('''
-            <a href='javascript:alert("Please, select the schedule and make sure it does not exceed maximum sks!");'>
+            <a href='javascript:alert("Please select the schedule and make sure it does not exceed the number of your maximum credits!");'>
                 <div class="customButton">
                     <button>
                         Next
@@ -70,7 +70,7 @@ def Class():
     for courseName in temp:
         courseCode = courseName[:10].strip()
         with st.expander(courseName, True):
-            data = st.session_state['courses'][courseCode]['Kelas']
+            data = st.session_state['courses'][courseCode]['Class']
             with st.container():
                 opt, sched = st.columns([1, 2])
                 for i in range(2):
@@ -83,25 +83,25 @@ def Class():
                     option = ['Rekomendasi JAKA']                        
                         
                     if courseCode not in st.session_state:
-                        st.session_state[courseCode] = 'Rekomendasi JAKA'
+                        st.session_state[courseCode] = 'Recommended by JAKA'
                 else:
                     st.session_state[courseCode] = data[0]['Nama']
                 
                 for kelas in data:
-                    temp = kelas['Nama']
+                    temp = kelas['Name']
                     option.append(temp)
                 
                 indexClass = option.index(st.session_state[courseCode])
                 
                 if indexClass or len(data) == 1:
                     idx = indexClass - 1 if len(data) > 1 else 0
-                    sched.write("##### **Detail Kelas**")
-                    sched.write("⌛ "+" ⌛ ".join(data[idx]['Jadwal']))
+                    sched.write("##### **Class Details**")
+                    sched.write("⌛ "+" ⌛ ".join(data[idx]['Time']))
                     sched.write("🚪 "+data[idx]['Ruang'])
-                    sched.write('🎓 '+' 🎓 '.join(data[idx]['Dosen']))
+                    sched.write('🎓 '+' 🎓 '.join(data[idx]['Lecturer']))
                 else:
                     sched.write(" ")
-                    sched.write("##### **Silakan pilih kelas yang kamu mau atau serahin aja ke JAKA**")
+                    sched.write("##### **Please choose the classes that you want or just let JAKA recommend them for you.**")
                 
                 opt.radio(' ', options=option, key=courseCode, index=indexClass)        
     
