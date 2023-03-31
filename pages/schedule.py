@@ -98,7 +98,6 @@ def checkSchedule(raw):
                 pass
             elif curr[0]/10000 == temp[0]/10000:
                 checkResult = False
-                print(curr, temp)
                 if curr[1] in conflict.get(curr[1]):
                     conflict[curr[1]].remove(curr[1])
                 else:
@@ -193,7 +192,6 @@ def Class():
                 option.append(temp)
                 for jam in kelas['Jadwal']:
                     jadwal.append((courseCode, jam))
-            print(jadwal)
             indexClass = option.index(st.session_state[courseCode])
             
             if indexClass or len(data) == 1:
@@ -224,14 +222,14 @@ def Class():
         st.write(" ")    
         if noConflict:
             status.success("Tidak ada konflik jadwal")
-            st.button('Save', on_click=saveSchedule)
+            st.button('Next', on_click=saveSchedule)
         else:
             status.error("Ada jadwal yang konflik")
             st.markdown("""
             <a href="javascript:document.getElementsByClassName('css-1ydp377 edgvbvh6')[1].click();">
                 <div class="row-widget customButton">
                     <button>
-                        Save
+                        Next
                     </button>
                 </div>
             </a>

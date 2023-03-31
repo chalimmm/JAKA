@@ -11,7 +11,7 @@ def app(u, p):
     placeholder.write("---")
     loading = placeholder.progress(0)
     with placeholder.container():
-        driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
+        driver = webdriver.Chrome('C:/Program Files (x86)/chromedriver.exe')
 
         driver.get("https://academic.ui.ac.id/")  
         loading.progress(10)

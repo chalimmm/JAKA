@@ -1,0 +1,5 @@
+sandbox/*
+jaka/*
+setup.sh
+Procfile
+pages/__pycache__/*
