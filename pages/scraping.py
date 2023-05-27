@@ -11,7 +11,7 @@ def app(u, p):
     placeholder.write("---")
     loading = placeholder.progress(0)
     with placeholder.container():
-        driver = webdriver.Chrome('C:/Program Files (x86)/chromedriver.exe')
+        driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
 
         driver.get("https://academic.ui.ac.id/")  
         loading.progress(10)
@@ -116,21 +116,21 @@ def app(u, p):
                         'Nama' : tempClass[1],
                         'Jadwal' : re.findall(regexDay, tempClass[4]),
                         'Ruang' : tempClass[5].strip("-"), 
-                        'Dosen' : []
+                        'Dosen' : ''
                     })
                 elif len(tempClass) > 4 :
                     courses[temp]['Kelas'].append({
                         'Nama' : tempClass[1],
                         'Jadwal' : re.findall(regexDay, tempClass[4]),
                         'Ruang' : '', 
-                        'Dosen' : []
+                        'Dosen' : ''
                     })
                 elif len(tempClass) > 3 :
                     courses[temp]['Kelas'].append({
                         'Nama' : tempClass[1],
-                        'Jadwal' : [],
+                        'Jadwal' : '',
                         'Ruang' : '', 
-                        'Dosen' : []
+                        'Dosen' : ''
                     })
         loading.progress(100)
         st.session_state['courses'] = courses
