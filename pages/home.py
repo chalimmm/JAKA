@@ -29,7 +29,7 @@ def app():
             reverse=False,
             loop=True,
             quality="high", # small; medium ; high
-            renderer="svg", # svg; canvas
+#             renderer="svg", # svg; canvas
             height=None,
             width=None,
             key="lottie-schedule",
